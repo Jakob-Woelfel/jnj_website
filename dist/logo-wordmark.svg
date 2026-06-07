@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 80" width="360" height="80" role="img" aria-label="J&amp;J Studios">
+  <defs>
+    
+  </defs>
+  <text x="0" y="58" font-size="58" class="jj-word" font-weight="600" letter-spacing="-1">
+    <tspan fill="#1F4D3D">J</tspan><tspan fill="#E7B24C" dx="-1">&amp;</tspan><tspan fill="#1F4D3D" dx="-1">J</tspan><tspan fill="#16241D" font-weight="500" dx="6">Studios</tspan>
+  </text>
+</svg>

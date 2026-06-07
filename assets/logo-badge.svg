@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="J&amp;J Studios">
+  <defs>
+    
+  </defs>
+  <rect x="0" y="0" width="120" height="120" rx="28" fill="#1F4D3D"></rect>
+  <text x="60" y="79" text-anchor="middle" font-size="52" class="jj-letter">
+    <tspan fill="#EEF4F0">J</tspan><tspan fill="#E7B24C" dx="-1">&amp;</tspan><tspan fill="#EEF4F0" dx="-1">J</tspan>
+  </text>
+</svg>

@@ -1,0 +1,36 @@
+@import '../../Design System J&J/tokens/fonts.css';
+@import '../../Design System J&J/tokens/colors.css';
+@import '../../Design System J&J/tokens/typography.css';
+@import '../../Design System J&J/tokens/spacing.css';
+@import '../../Design System J&J/tokens/elevation.css';
+@import '../../Design System J&J/tokens/base.css';
+
+/* Responsive: collapse two-column grids to single column */
+@media (max-width: 920px) {
+  .jj-hero-grid,
+  .jj-process-grid,
+  .jj-testi-grid,
+  .jj-faq-grid,
+  .jj-contact-grid,
+  .jj-ba-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .jj-ba-arrow {
+    display: none !important;
+  }
+  .jj-float-card {
+    display: none !important;
+  }
+}
+
+@media (max-width: 720px) {
+  .jj-desktop-nav {
+    display: none !important;
+  }
+  .jj-mobile-toggle {
+    display: flex !important;
+  }
+  .jj-form-row {
+    grid-template-columns: 1fr !important;
+  }
+}
