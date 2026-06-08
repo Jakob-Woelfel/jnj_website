@@ -49,15 +49,19 @@ src/
     ueber-uns/           ← /ueber-uns
     kontakt/             ← /kontakt
   styles/
-    globals.css          ← @imports all design system token files + responsive helpers
-Design System J&J/       ← SOURCE OF TRUTH for tokens, brand, and component reference
+    globals.css          ← @imports design/tokens.css + responsive helpers
+design/                  ← SOURCE OF TRUTH for tokens, brand, and screen specs
+  tokens.css             ← all CSS custom properties (colors, type, spacing, elevation, reset)
+  brand.md               ← audience, voice rules, visual philosophy, component usage
+  screens.md             ← page-by-page section specs with content intent
+  assets/                ← master logo SVGs (badge, horizontal, wordmark)
 ```
 
 ## Design system rules
 
-**Never modify files inside `Design System J&J/`.** It is the upstream source of truth. Changes to brand tokens happen there and are picked up automatically via `@import` in `src/styles/globals.css`.
+**Never modify files inside `design/`.** It is the upstream source of truth. Changes to brand tokens happen in `design/tokens.css` and are picked up automatically via `@import` in `src/styles/globals.css`.
 
-**Always use semantic tokens, not raw hex values.** Use `var(--green-800)` not `#1F4D3D`. Semantic aliases are in `Design System J&J/tokens/colors.css`.
+**Always use semantic tokens, not raw hex values.** Use `var(--green-800)` not `#1F4D3D`. Semantic aliases are in `design/tokens.css`.
 
 Key tokens to know:
 - `--surface-page` — cream page background

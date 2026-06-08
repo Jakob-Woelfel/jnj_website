@@ -1,9 +1,4 @@
-@import '../../Design System J&J/tokens/fonts.css';
-@import '../../Design System J&J/tokens/colors.css';
-@import '../../Design System J&J/tokens/typography.css';
-@import '../../Design System J&J/tokens/spacing.css';
-@import '../../Design System J&J/tokens/elevation.css';
-@import '../../Design System J&J/tokens/base.css';
+@import '../../design/tokens.css';
 
 /* Responsive: collapse two-column grids to single column */
 @media (max-width: 920px) {
