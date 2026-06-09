@@ -12,42 +12,39 @@ Marketing website for J&J Studios, a two-person German web studio. Targets local
 
 | What | Choice |
 |------|--------|
-| Build tool | Vite 5 |
-| UI | React 18 |
-| Routing | React Router 6 (`createBrowserRouter`) |
-| Styling | CSS custom properties (no CSS-in-JS framework) |
-| Deploy | Netlify (SPA redirect in `netlify.toml`) |
+| Framework | Next.js 15 (App Router, `output: 'export'`) |
+| UI | React 19 |
+| Language | TypeScript 5 |
+| Styling | CSS custom properties + CSS Modules for interactive components |
+| Deploy | Netlify (static export to `out/`) |
 
 ## Commands
 
 ```bash
-npm run dev      # start dev server at http://localhost:5173
-npm run build    # production build → dist/
-npm run preview  # preview the production build locally
+pnpm dev      # start dev server at http://localhost:3000
+pnpm build    # production build → out/
+pnpm start    # preview the production build (after build)
 ```
 
 ## Folder structure
 
 ```
-assets/                  ← Vite publicDir — served at /. Logo SVGs live here.
+assets/                  ← Next.js publicDir — served at /. Logo SVGs live here.
 src/
-  app/
-    main.jsx             ← React entry point, mounts RouterProvider
-    App.jsx              ← App shell: Nav + <Outlet> + Footer
-    router.jsx           ← All route definitions
+  app/                   ← Next.js App Router
+    layout.tsx           ← Root layout: fonts (next/font), Nav, Footer, metadata
+    page.tsx             ← / (Startseite)
+    leistungen/page.tsx  ← /leistungen
+    referenzen/page.tsx  ← /referenzen
+    ueber-uns/page.tsx   ← /ueber-uns
+    kontakt/page.tsx     ← /kontakt ('use client' — form state)
   components/
-    Icon.jsx             ← Curated Lucide icon set (inline SVG, currentColor)
+    Icon.tsx             ← Curated Lucide icon set (inline SVG, currentColor)
     core/                ← Button, Card, Badge, Avatar
     forms/               ← Input, Textarea, Select, Checkbox
     content/             ← Testimonial, Accordion
     layout/              ← Nav, Footer, Section, SectionHeading,
                             PhotoSlot, BrowserFrame, Stars
-  content/               ← One folder per page/route
-    startseite/          ← / (landing page)
-    leistungen/          ← /leistungen
-    referenzen/          ← /referenzen
-    ueber-uns/           ← /ueber-uns
-    kontakt/             ← /kontakt
   styles/
     globals.css          ← @imports design/tokens.css + responsive helpers
 design/                  ← SOURCE OF TRUTH for tokens, brand, and screen specs
@@ -71,8 +68,8 @@ Key tokens to know:
 - `--text-strong / --text-body / --text-muted / --text-faint` — text hierarchy
 - `--text-on-brand / --text-on-brand-muted` — text on dark pine surfaces
 - `--accent` — gold, **reserved for the single primary CTA only**
-- `--font-serif` — Newsreader, used for h1, h2, display, pull-quotes
-- `--font-sans` — Figtree, used for h3/h4, body, all UI
+- `--font-serif` — Newsreader via `var(--font-newsreader)` CSS variable, used for h1, h2, display, pull-quotes
+- `--font-sans` — Figtree via `var(--font-figtree)` CSS variable, used for h3/h4, body, all UI
 - `--section-y` — vertical rhythm between sections (6rem)
 - `--container-max` — max content width (1180px)
 - `--gutter-lg` — desktop side padding (2rem)
@@ -81,21 +78,30 @@ Key tokens to know:
 
 `@` resolves to `src/`. Use it for all internal imports:
 
-```jsx
+```tsx
 import { Button } from '@/components/core/Button';
 import Section    from '@/components/layout/Section';
 ```
 
+## Client vs server components
+
+Most components are server components. Only these use `'use client'`:
+- `Button` — handles `onClick`
+- `Nav` — `useState` (mobile menu), `usePathname` (active link)
+- `Accordion` — `useState` (open panels)
+- `Input`, `Textarea`, `Select`, `Checkbox` — `useId` for label association
+- `kontakt/page.tsx` — `useState` for form sent state
+
 ## Adding a new page
 
-1. Create `src/content/<pagename>/index.jsx`
-2. Add a route in `src/app/router.jsx`
-3. Add the nav link to `src/components/layout/Nav.jsx` (LINKS array)
-4. Add the footer link to `src/components/layout/Footer.jsx`
+1. Create `src/app/<pagename>/page.tsx`
+2. Export `metadata` for SEO title/description
+3. Add the nav link to `src/components/layout/Nav.tsx` (LINKS array)
+4. Add the footer link to `src/components/layout/Footer.tsx` (STUDIO_LINKS array)
 
 ## Adding a new icon
 
-Open `src/components/Icon.jsx` and add the Lucide path data to the `PATHS` object. Copy SVG path data from [lucide.dev](https://lucide.dev).
+Open `src/components/Icon.tsx` and add the Lucide path data to the `PATHS` object. Copy SVG path data from [lucide.dev](https://lucide.dev).
 
 ## Language & copy rules
 
@@ -115,7 +121,7 @@ CSS class hooks used for responsive overrides: `.jj-hero-grid`, `.jj-process-gri
 
 ## Assets
 
-Logo files in `assets/` are served by Vite at the root path:
+Logo files in `assets/` are served by Next.js at the root path:
 - `/logo-horizontal.svg` — used in Nav
 - `/logo-badge.svg` — used in Footer and as favicon
 - `/logo-wordmark.svg` — available for use
@@ -124,4 +130,4 @@ Real photography goes in `assets/images/` when available. Placeholder: `<PhotoSl
 
 ## Deployment
 
-Push to the Netlify-connected repository. Netlify runs `npm run build` and publishes `dist/`. The `[[redirects]]` rule in `netlify.toml` handles client-side routing.
+Push to the Netlify-connected repository. Netlify runs `pnpm build` and publishes `out/`. No SPA redirect rule needed — each page generates its own `index.html`.

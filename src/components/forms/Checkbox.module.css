@@ -1,0 +1,39 @@
+.label {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  color: var(--text-body);
+  line-height: 1.45;
+}
+
+.wrap { position: relative; display: inline-flex; flex: none; margin-top: 1px; }
+
+.input {
+  position: absolute;
+  opacity: 0;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.box {
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border-strong);
+  background: var(--surface-card);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.12s ease, border-color 0.12s ease;
+}
+
+.input:checked + .box { background: var(--green-600); border-color: var(--green-600); }
+.input:focus-visible + .box { box-shadow: var(--ring); }
+
+.tick { opacity: 0; }
+.input:checked + .box .tick { opacity: 1; }

@@ -5,10 +5,8 @@
               → spacing → elevation → reset → brand helpers
    ============================================================ */
 
-/* Webfonts — Google Fonts CDN
-   To self-host: replace with local @font-face src: url() rules,
-   drop woff2 files in assets/fonts/ — nothing else changes. */
-@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Figtree:wght@400;500;600;700;800&display=swap');
+/* Webfonts — injected via next/font/google as CSS variables
+   --font-newsreader and --font-figtree are set on <html> by layout.tsx */
 
 :root {
 
@@ -114,8 +112,8 @@
 
   /* Newsreader (serif) = display / H1 / H2 / pull-quotes
      Figtree (sans)     = H3 / H4 / body / all UI              */
-  --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
-  --font-sans:  'Figtree', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-serif: var(--font-newsreader), Georgia, 'Times New Roman', serif;
+  --font-sans:  var(--font-figtree), system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-mono:  ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
 
   --fw-regular:  400;

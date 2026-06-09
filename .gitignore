@@ -3,6 +3,10 @@ node_modules/
 
 # Build output
 dist/
+out/
+
+# Next.js
+.next/
 
 # Vite cache
 .vite/

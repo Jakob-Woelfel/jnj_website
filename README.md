@@ -1,25 +1,25 @@
 # J&J Studios — Website
 
-Die Marketing-Website für J&J Studios, ein Zwei-Personen-Webstudio (Jakob & Jakob) aus Deutschland. Gebaut mit Vite + React, deployed auf Netlify.
+Die Marketing-Website für J&J Studios, ein Zwei-Personen-Webstudio (Jakob & Jakob) aus Deutschland. Gebaut mit Next.js 15 + TypeScript, deployed als statischer Export auf Netlify.
 
 ---
 
 ## Schnellstart
 
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm dev
 ```
 
-Öffnet die Seite unter `http://localhost:5173`.
+Öffnet die Seite unter `http://localhost:3000`.
 
 ## Verfügbare Befehle
 
 | Befehl | Funktion |
 |--------|----------|
-| `npm run dev` | Entwicklungsserver starten |
-| `npm run build` | Produktions-Build → `dist/` |
-| `npm run preview` | Produktions-Build lokal vorschauen |
+| `pnpm dev` | Entwicklungsserver starten |
+| `pnpm build` | Produktions-Build → `out/` |
+| `pnpm start` | Produktions-Build lokal vorschauen |
 
 ---
 
@@ -32,29 +32,30 @@ jnj_website/
 │   ├── logo-horizontal.svg
 │   └── logo-wordmark.svg
 ├── src/
-│   ├── app/                   App-Shell und Router
-│   │   ├── main.jsx           Einstiegspunkt
-│   │   ├── App.jsx            Shell mit Nav + Outlet + Footer
-│   │   └── router.jsx         Alle Routen-Definitionen
+│   ├── app/                   Next.js App Router
+│   │   ├── layout.tsx         Root-Layout: Fonts, Nav, Footer, Metadata
+│   │   ├── page.tsx           Startseite (/)
+│   │   ├── leistungen/        /leistungen
+│   │   ├── referenzen/        /referenzen
+│   │   ├── ueber-uns/         /ueber-uns
+│   │   └── kontakt/           /kontakt ('use client' — Formular-State)
 │   ├── components/            Wiederverwendbare Komponenten
-│   │   ├── Icon.jsx           Lucide-Icon-Set (inline SVG)
+│   │   ├── Icon.tsx           Lucide-Icon-Set (inline SVG)
 │   │   ├── core/              Button, Card, Badge, Avatar
 │   │   ├── forms/             Input, Textarea, Select, Checkbox
 │   │   ├── content/           Testimonial, Accordion
 │   │   └── layout/            Nav, Footer, Section, SectionHeading,
 │   │                          PhotoSlot, BrowserFrame, Stars
-│   ├── content/               Seiteninhalte (eine Seite pro Ordner)
-│   │   ├── startseite/        Startseite (/)
-│   │   ├── leistungen/        Leistungen (/leistungen)
-│   │   ├── referenzen/        Referenzen (/referenzen)
-│   │   ├── ueber-uns/         Über uns (/ueber-uns)
-│   │   └── kontakt/           Kontakt (/kontakt)
 │   └── styles/
-│       └── globals.css        Globale Stile + Design-Token-Imports
-├── Design System J&J/         Designsystem (Tokens, Komponenten-Referenz)
-├── index.html                 HTML-Einstiegspunkt
-├── vite.config.js
-├── netlify.toml               Netlify-Build-Konfiguration + SPA-Redirect
+│       └── globals.css        Globale Stile + Design-Token-Import
+├── design/                    Designsystem (Tokens, Marken-Richtlinien)
+│   ├── tokens.css             Alle CSS-Custom-Properties
+│   ├── brand.md               Marken-Richtlinien & Komponenten-Regeln
+│   ├── screens.md             Seiten-Spezifikationen
+│   └── assets/                Master-Logos (SVG)
+├── next.config.ts             Next.js-Konfiguration (static export)
+├── tsconfig.json
+├── netlify.toml               Netlify-Build-Konfiguration
 └── package.json
 ```
 
@@ -74,16 +75,25 @@ jnj_website/
 
 ## Design System
 
-Das Designsystem liegt im Ordner `Design System J&J/`. Es enthält:
+Das Designsystem liegt im Ordner `design/`. Es enthält:
 
-- **Tokens** (`tokens/`) — Farben, Typografie, Abstände, Schatten, Radien
-- **Komponenten** (`components/`) — Referenz-Implementierungen
-- **Logos** (`assets/`) — SVG-Logos in drei Varianten
-- **UI-Kit** (`ui_kits/website/`) — Interaktiver Prototyp (Referenz)
+- **`tokens.css`** — Farben, Typografie, Abstände, Schatten, Radien als CSS-Custom-Properties
+- **`brand.md`** — Marken-Richtlinien, Stimme, visuelle Regeln, Komponenten-Verwendung
+- **`screens.md`** — Seiten-Spezifikationen mit Inhalts-Intent
+- **`assets/`** — SVG-Logos in drei Varianten
 
-Die Tokens werden in `src/styles/globals.css` per `@import` eingebunden. Alle CSS-Variablen aus dem Designsystem stehen damit global zur Verfügung.
+Die Tokens werden in `src/styles/globals.css` per `@import` eingebunden. Alle CSS-Variablen stehen damit global zur Verfügung.
 
-**Wichtig:** Dateien im Ordner `Design System J&J/` werden nicht direkt bearbeitet. Er ist die Quelle für alle Marken-Entscheidungen.
+**Wichtig:** Dateien im Ordner `design/` werden nicht direkt bearbeitet. Er ist die Quelle für alle Marken-Entscheidungen.
+
+### Schriften
+
+Newsreader und Figtree werden über `next/font/google` zur Build-Zeit heruntergeladen und als selbst-gehostete Dateien eingebunden (kein Google-CDN-Aufruf zur Laufzeit). Die Schriften sind über CSS-Variablen verfügbar:
+
+| Token | Schrift | Verwendung |
+|-------|---------|-----------|
+| `--font-serif` | Newsreader | H1, H2, Display, Pull-Quotes |
+| `--font-sans` | Figtree | H3, H4, Fließtext, alle UI-Elemente |
 
 ### Wichtige Token
 
@@ -91,10 +101,9 @@ Die Tokens werden in `src/styles/globals.css` per `@import` eingebunden. Alle CS
 |-------|-----------|
 | `--surface-page` | Seitenhintergrund (Creme) |
 | `--surface-card` | Karten-Oberfläche (Weiß) |
-| `--surface-brand` | Dunkles Kieferngrün (Prozess-Sektion, Footer) |
-| `--accent` | Gold — **nur für den primären CTA-Button** |
-| `--font-serif` | Newsreader — Überschriften H1, H2, Display |
-| `--font-sans` | Figtree — Fließtext, UI-Elemente |
+| `--surface-brand` | Dunkles Kieferngrün (Prozess-Sektion) |
+| `--surface-brand-deep` | Tiefes Kieferngrün (Footer, CTA-Band) |
+| `--accent` | Gold — **nur für den einen primären CTA-Button** |
 | `--section-y` | Vertikaler Abstand zwischen Sektionen (6rem) |
 
 ### Farb-Hierarchie
@@ -112,7 +121,7 @@ Die Tokens werden in `src/styles/globals.css` per `@import` eingebunden. Alle CS
 
 | Komponente | Props | Verwendung |
 |-----------|-------|-----------|
-| `Button` | `variant` (accent/primary/secondary/ghost), `size` (sm/md/lg), `fullWidth`, `iconLeft`, `iconRight` | Alle CTAs und Aktionen |
+| `Button` | `variant` (accent/primary/secondary/ghost), `size` (sm/md/lg), `href`, `fullWidth`, `iconLeft`, `iconRight` | Alle CTAs und Aktionen |
 | `Card` | `padding` (none/sm/md/lg), `tone` (white/cream/brand/soft), `interactive` | Inhalts-Container |
 | `Badge` | `variant` (neutral/brand/accent/success/warning/danger), `size` (sm/md), `dot` | Tags und Status-Labels |
 | `Avatar` | `name`, `src`, `size` (sm/md/lg/xl) | Personen in Testimonials |
@@ -121,10 +130,10 @@ Die Tokens werden in `src/styles/globals.css` per `@import` eingebunden. Alle CS
 
 | Komponente | Besonderheit |
 |-----------|-------------|
-| `Input` | Label, Hint, Error, leadingIcon |
-| `Textarea` | Anpassbare Zeilenzahl |
-| `Select` | Native Select mit angepasstem Chevron |
-| `Checkbox` | Grüner Haken bei Aktivierung |
+| `Input` | Label, Hint, Error, leadingIcon — Fokus-State via CSS `:focus-within` |
+| `Textarea` | Anpassbare Zeilenzahl — Fokus-State via CSS `:focus` |
+| `Select` | Native Select mit angepasstem Chevron — Fokus-State via CSS `:focus` |
+| `Checkbox` | Checked-State via CSS `:checked` (kein JS-State) |
 
 ### Layout
 
@@ -140,14 +149,14 @@ Die Tokens werden in `src/styles/globals.css` per `@import` eingebunden. Alle CS
 
 ## Neue Seite hinzufügen
 
-1. Ordner `src/content/<seitenname>/` anlegen mit `index.jsx`
-2. Route in `src/app/router.jsx` eintragen
-3. Nav-Link in `src/components/layout/Nav.jsx` (LINKS-Array) ergänzen
-4. Footer-Link in `src/components/layout/Footer.jsx` ergänzen
+1. Datei `src/app/<seitenname>/page.tsx` anlegen
+2. `metadata`-Export für Titel und Beschreibung ergänzen
+3. Nav-Link in `src/components/layout/Nav.tsx` (LINKS-Array) eintragen
+4. Footer-Link in `src/components/layout/Footer.tsx` (STUDIO_LINKS-Array) eintragen
 
-## Neue Icon hinzufügen
+## Neues Icon hinzufügen
 
-In `src/components/Icon.jsx` das Lucide-Pfad-SVG zum `PATHS`-Objekt hinzufügen. Pfaddaten unter [lucide.dev](https://lucide.dev) kopieren.
+In `src/components/Icon.tsx` das Lucide-Pfad-SVG zum `PATHS`-Objekt hinzufügen. Pfaddaten unter [lucide.dev](https://lucide.dev) kopieren.
 
 ---
 
@@ -155,9 +164,9 @@ In `src/components/Icon.jsx` das Lucide-Pfad-SVG zum `PATHS`-Objekt hinzufügen.
 
 Das Projekt ist für Netlify konfiguriert:
 
-- Build-Befehl: `npm run build`
-- Publish-Verzeichnis: `dist`
-- SPA-Redirect: Alle Pfade → `index.html` (für client-seitiges Routing)
+- Build-Befehl: `pnpm build`
+- Publish-Verzeichnis: `out`
+- Jede Seite generiert eine eigene `index.html` — kein SPA-Redirect nötig
 
 Einfach das Repository mit Netlify verbinden — der erste Push startet automatisch den Build.
 
