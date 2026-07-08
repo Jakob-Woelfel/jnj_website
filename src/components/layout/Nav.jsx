@@ -45,7 +45,7 @@ export default function Nav() {
         }}
       >
         <NavLink to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
-          <img src="/logo-horizontal.svg" alt="J&J Studios" style={{ height: '38px', display: 'block' }} />
+          <img src="/logo-horizontal.svg" alt="J&J Studios" style={{ height: '44px', display: 'block' }} />
         </NavLink>
 
         <nav style={{ display: 'flex', alignItems: 'center', gap: '6px' }} className="jj-desktop-nav">
