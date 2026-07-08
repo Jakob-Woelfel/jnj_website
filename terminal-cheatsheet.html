@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terminal-Spickzettel — J&amp;J Studios</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Figtree:wght@400;500;600;700;800&display=swap');
+
+  :root {
+    /* ---- Pine green scale ---- */
+    --green-950: #0F2A20;
+    --green-900: #14352A;
+    --green-800: #1F4D3D;
+    --green-700: #265A47;
+    --green-600: #2E6B52;
+    --green-500: #3A8366;
+    --green-300: #8FBFAB;
+    --green-200: #C2DACE;
+    --green-100: #DEEBE4;
+    --green-50:  #EEF4F0;
+
+    /* ---- Gold scale ---- */
+    --gold-700: #B8852A;
+    --gold-600: #D29A38;
+    --gold-500: #E7B24C;
+    --gold-200: #F9E6C2;
+    --gold-100: #FCF1DA;
+
+    /* ---- Warm neutrals ---- */
+    --ink-900: #16241D;
+    --ink-700: #3E463F;
+    --ink-600: #57605A;
+    --ink-500: #79817B;
+    --ink-200: #DCE0D6;
+    --ink-150: #E7E9E0;
+    --ink-100: #F0F1EA;
+    --paper:   #F6F4EE;
+    --paper-2: #FCFBF7;
+    --white:   #FFFFFF;
+
+    /* ---- Danger (for destructive commands) ---- */
+    --danger-700: #9E3B23;
+    --danger-600: #BF4A2C;
+    --danger-100: #F7E0D7;
+
+    /* ---- Semantic aliases ---- */
+    --surface-page: var(--paper);
+    --surface-card: var(--white);
+    --surface-brand: var(--green-800);
+    --surface-brand-deep: var(--green-900);
+    --text-strong: var(--ink-900);
+    --text-body: var(--ink-700);
+    --text-muted: var(--ink-600);
+    --text-faint: var(--ink-500);
+    --text-on-brand: #EEF4F0;
+    --text-on-brand-muted: #AFC6BB;
+    --accent: var(--gold-500);
+
+    --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+    --font-sans:  'Figtree', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --font-mono:  ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
+    --radius-2xl: 28px;
+    --radius-pill: 999px;
+
+    --shadow-sm: 0 1px 3px rgba(20, 53, 42, 0.08), 0 1px 2px rgba(20, 53, 42, 0.05);
+    --shadow-md: 0 6px 16px rgba(20, 53, 42, 0.09), 0 2px 4px rgba(20, 53, 42, 0.05);
+    --shadow-lg: 0 16px 36px rgba(20, 53, 42, 0.12), 0 4px 10px rgba(20, 53, 42, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--surface-page);
+    color: var(--text-body);
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 { margin: 0; color: var(--text-strong); font-weight: 500; }
+  h1 { font-family: var(--font-serif); font-size: 2.25rem; letter-spacing: -0.02em; line-height: 1.1; }
+  h2 { font-family: var(--font-serif); font-size: 1.625rem; letter-spacing: -0.02em; }
+  h3 { font-family: var(--font-sans); font-weight: 600; font-size: 1.125rem; letter-spacing: -0.01em; }
+
+  p { margin: 0 0 1em; }
+  code, kbd { font-family: var(--font-mono); font-size: 0.9em; }
+
+  .jj-container { max-width: 880px; margin-inline: auto; padding-inline: 1.5rem; }
+  @media (min-width: 768px) { .jj-container { padding-inline: 2rem; } }
+
+  /* ---- Header ---- */
+  .jj-header {
+    background: var(--surface-brand);
+    background-image: linear-gradient(160deg, var(--surface-brand) 0%, var(--surface-brand-deep) 100%);
+    color: var(--text-on-brand);
+    padding: 3rem 0 2.5rem;
+  }
+  .jj-header .jj-container { display: flex; align-items: flex-start; gap: 1.25rem; flex-wrap: wrap; }
+  .jj-badge {
+    flex: none;
+    width: 56px; height: 56px;
+    border-radius: var(--radius-md);
+    background: var(--green-950, #0F2A20);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-serif); font-size: 1.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+  .jj-badge span:nth-child(2) { color: var(--gold-500); margin: 0 -1px; }
+  .jj-header-text { flex: 1; min-width: 260px; }
+  .jj-eyebrow {
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--text-on-brand-muted);
+    margin-bottom: 0.5rem;
+  }
+  .jj-header h1 { color: var(--text-on-brand); }
+  .jj-header .jj-lead { color: var(--text-on-brand-muted); font-size: 1.0625rem; margin-top: 0.75rem; max-width: 60ch; }
+
+  /* ---- Sections ---- */
+  main { padding: 3rem 0 5rem; }
+  .jj-section { margin-bottom: 3.5rem; }
+  .jj-section-head { display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 1.25rem; }
+  .jj-section-num {
+    font-family: var(--font-serif); font-size: 1.125rem; color: var(--accent);
+    font-weight: 500;
+  }
+
+  /* ---- Command table (card) ---- */
+  .jj-card {
+    background: var(--surface-card);
+    border: 1px solid var(--ink-150);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+  }
+  table { width: 100%; border-collapse: collapse; }
+  thead th {
+    text-align: left;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    background: var(--ink-100);
+    padding: 0.75rem 1.25rem;
+  }
+  tbody td {
+    padding: 1rem 1.25rem;
+    border-top: 1px solid var(--ink-150);
+    vertical-align: top;
+  }
+  tbody tr:hover { background: var(--green-50); }
+  td.jj-cmd-col { width: 34%; white-space: nowrap; }
+  .jj-cmd {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-weight: 600;
+    color: var(--green-900);
+    background: var(--green-100);
+    padding: 0.2em 0.55em;
+    border-radius: var(--radius-sm);
+  }
+  .jj-example {
+    display: block;
+    margin-top: 0.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--text-muted);
+  }
+  .jj-desc { color: var(--text-body); font-size: 0.9375rem; line-height: 1.55; }
+  .jj-desc .jj-note { display: block; margin-top: 0.35rem; font-size: 0.8125rem; color: var(--text-faint); }
+
+  /* ---- Callout ---- */
+  .jj-callout {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    padding: 1rem 1.25rem;
+    border-radius: var(--radius-md);
+    font-size: 0.9375rem;
+    line-height: 1.55;
+  }
+  .jj-callout-tip { background: var(--gold-100); border: 1px solid var(--gold-200); color: var(--ink-900); }
+  .jj-callout-warn { background: var(--danger-100); border: 1px solid #efc4b3; color: var(--danger-700); }
+  .jj-callout-icon { flex: none; font-weight: 700; }
+  .jj-callout strong { color: inherit; }
+
+  /* ---- Git workflow steps ---- */
+  .jj-steps { list-style: none; margin: 0; padding: 0; counter-reset: step; }
+  .jj-steps li {
+    counter-increment: step;
+    display: flex;
+    gap: 1rem;
+    padding: 1.1rem 1.25rem;
+    border-top: 1px solid var(--ink-150);
+  }
+  .jj-steps li:first-child { border-top: none; }
+  .jj-steps li::before {
+    content: counter(step);
+    flex: none;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--green-800);
+    color: var(--text-on-brand);
+    font-family: var(--font-sans); font-weight: 700; font-size: 0.875rem;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .jj-steps .jj-step-body { flex: 1; }
+  .jj-steps .jj-cmd { margin-bottom: 0.3rem; }
+
+  /* ---- Footer ---- */
+  footer {
+    background: var(--surface-brand-deep);
+    color: var(--text-on-brand-muted);
+    padding: 2rem 0;
+    font-size: 0.875rem;
+  }
+  footer strong { color: var(--text-on-brand); }
+
+  @media print {
+    .jj-header { background: var(--surface-brand) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    footer { background: var(--surface-brand-deep) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<header class="jj-header">
+  <div class="jj-container">
+    <div class="jj-badge"><span style="color:#EEF4F0">J</span><span>&amp;</span><span style="color:#EEF4F0">J</span></div>
+    <div class="jj-header-text">
+      <div class="jj-eyebrow">Internes Referenzdokument</div>
+      <h1>Terminal-Spickzettel</h1>
+      <p class="jj-lead">Die Befehle, die wir im Alltag wirklich brauchen — Dateien verwalten und gemeinsam mit Git arbeiten. Kein Fachjargon, keine Überraschungen. Einfach nachschlagen, wenn du unsicher bist.</p>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="jj-container">
+
+    <section class="jj-section">
+      <div class="jj-section-head">
+        <span class="jj-section-num">01</span>
+        <h2>Navigation — wo bin ich, wo will ich hin</h2>
+      </div>
+      <div class="jj-card">
+        <table>
+          <thead>
+            <tr><th>Befehl</th><th>Bedeutung</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="jj-cmd-col"><span class="jj-cmd">pwd</span></td>
+              <td class="jj-desc">Zeigt den Ordner, in dem du dich gerade befindest (<em>„print working directory“</em>).</td>
+            </tr>
+            <tr>
+              <td class="jj-cmd-col">
+                <span class="jj-cmd">ls</span>
+                <span class="jj-example">ls -la</span>
+              </td>
+              <td class="jj-desc">Listet den Inhalt des aktuellen Ordners auf. Mit <code>-la</code> siehst du auch versteckte Dateien (die mit einem Punkt beginnen) und Details wie Größe und Rechte.</td>
+            </tr>
+            <tr>
+              <td class="jj-cmd-col">
+                <span class="jj-cmd">cd</span>
+                <span class="jj-example">cd src/components</span>
+              </td>
+              <td class="jj-desc">Wechselt den Ordner (<em>„change directory“</em>). Ohne Angabe eines Ziels springt <code>cd</code> zurück in dein Home-Verzeichnis.</td>
+            </tr>
+            <tr>
+              <td class="jj-cmd-col">
+                <span class="jj-cmd">..</span>
+                <span class="jj-example">cd ..</span>
+              </td>
+              <td class="jj-desc">Steht für den <strong>übergeordneten Ordner</strong> (eine Ebene nach oben). <code>cd ../..</code> geht zwei Ebenen hoch.</td>
+            </tr>
+            <tr>
+              <td class="jj-cmd-col">
+                <span class="jj-cmd">.</span>
+                <span class="jj-example">./script.sh</span>
+              </td>
+              <td class="jj-desc">Steht für den <strong>aktuellen Ordner</strong>. <code>./</code> vor einem Dateinamen sagt dem Terminal „führe diese Datei genau hier aus“ — wichtig bei ausführbaren Skripten.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="jj-callout jj-callout-tip">
+        <span class="jj-callout-icon">☺</span>
+        <span><strong>Faustregel:</strong> Wenn du dich verirrst, hilft immer <code class="jj-cmd">pwd</code> gefolgt von <code class="jj-cmd">ls</code> — erst schauen, wo du bist, dann was um dich herum liegt.</span>
+      </div>
+    </section>
+
+    <section class="jj-section">
+      <div class="jj-section-head">
+        <span class="jj-section-num">02</span>
+        <h2>Anlegen — Dateien und Ordner erstellen</h2>
+      </div>
+      <div class="jj-card">
+        <table>
+          <thead>
+            <tr><th>Befehl</th><th>Bedeutung</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="jj-cmd-col">
+                <span class="jj-cmd">touch</span>
+                <span class="jj-example">touch notizen.txt</span>
+              </td>
+              <td class="jj-desc">Erstellt eine neue, leere Datei. Existiert die Datei schon, passiert nichts Schlimmes — nur ihr „zuletzt geändert“-Datum wird aktualisiert.</td>
+            </tr>
+            <tr>
+              <td class="jj-cmd-col">
+                <span class="jj-cmd">mkdir</span>
+                <span class="jj-example">mkdir -p projekte/kunde-a</span>
+              </td>
+              <td class="jj-desc">Erstellt einen neuen Ordner (<em>„make directory“</em>). Mit <code>-p</code> legt es auch alle fehlenden übergeordneten Ordner gleich mit an, ohne Fehlermeldung.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="jj-section">
+      <div class="jj-section-head">
+        <span class="jj-section-num">03</span>
+        <h2>Verschieben &amp; umbenennen</h2>
+      </div>
+      <div class="jj-card">
+        <table>
+          <thead>
+            <tr><th>Befehl</th><th>Bedeutung</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="jj-cmd-col">
+                <span class="jj-cmd">mv</span>
+                <span class="jj-example">mv entwurf.jpg archiv/</span>
+              </td>
+              <td class="jj-desc">Verschiebt eine Datei oder einen Ordner an einen anderen Ort (<em>„move“</em>).
+                <span class="jj-note">Es gibt keinen separaten Befehl <code>mvdir</code> — <code>mv</code> funktioniert für Dateien und Ordner gleichermaßen.</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="jj-cmd-col">
+                <span class="jj-cmd">mv</span>
+                <span class="jj-example">mv alt.txt neu.txt</span>
+              </td>
+              <td class="jj-desc">Wird <code>mv</code> innerhalb desselben Ordners verwendet, benennt es die Datei oder den Ordner einfach um.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="jj-section">
+      <div class="jj-section-head">
+        <span class="jj-section-num">04</span>
+        <h2>Kopieren</h2>
+      </div>
+      <div class="jj-card">
+        <table>
+          <thead>
+            <tr><th>Befehl</th><th>Bedeutung</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="jj-cmd-col">
+                <span class="jj-cmd">cp</span>
+                <span class="jj-example">cp entwurf.jpg archiv/</span>
+              </td>
+              <td class="jj-desc">Kopiert eine Datei an einen anderen Ort oder unter einem neuen Namen (<em>„copy“</em>). Anders als <code>mv</code> bleibt das Original erhalten.</td>
+            </tr>
+            <tr>
+              <td class="jj-cmd-col">
+                <span class="jj-cmd">cp -r</span>
+                <span class="jj-example">cp -r projekte/kunde-a projekte/kunde-a-kopie</span>
+              </td>
+              <td class="jj-desc">Kopiert einen ganzen Ordner samt Inhalt (<em>„recursive“</em>).
+                <span class="jj-note">Ohne <code>-r</code> meldet <code>cp</code> bei Ordnern einen Fehler — genau wie bei <code>rm</code> weiter unten.</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="jj-section">
+      <div class="jj-section-head">
+        <span class="jj-section-num">05</span>
+        <h2>Löschen</h2>
+      </div>
+      <div class="jj-card">
+        <table>
+          <thead>
+            <tr><th>Befehl</th><th>Bedeutung</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="jj-cmd-col">
+                <span class="jj-cmd">rm</span>
+                <span class="jj-example">rm entwurf.jpg</span>
+              </td>
+              <td class="jj-desc">Löscht eine einzelne Datei unwiderruflich (<em>„remove“</em>) — landet <strong>nicht</strong> im Papierkorb.</td>
+            </tr>
+            <tr>
+              <td class="jj-cmd-col">
+                <span class="jj-cmd">rmdir</span>
+                <span class="jj-example">rmdir alter-ordner</span>
+              </td>
+              <td class="jj-desc">Löscht einen Ordner — aber nur, wenn er <strong>komplett leer</strong> ist.</td>
+            </tr>
+            <tr>
+              <td class="jj-cmd-col">
+                <span class="jj-cmd">rm -r</span>
+                <span class="jj-example">rm -r alter-ordner</span>
+              </td>
+              <td class="jj-desc">Löscht einen Ordner samt allem Inhalt (<em>„recursive“</em>) — auch wenn er nicht leer ist.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="jj-callout jj-callout-warn">
+        <span class="jj-callout-icon">⚠</span>
+        <span><strong>Vorsicht:</strong> Gelöschtes über <code>rm</code> ist weg — es gibt keinen Papierkorb und kein „Rückgängig“. Im Zweifel erst mit <code class="jj-cmd">ls</code> prüfen, was du löschst.</span>
+      </div>
+    </section>
+
+    <section class="jj-section">
+      <div class="jj-section-head">
+        <span class="jj-section-num">06</span>
+        <h2>Git-Workflow im Team</h2>
+      </div>
+      <p style="margin-bottom:1.25rem; color:var(--text-muted);">So läuft ein normaler Arbeitstag ab, wenn wir beide am selben Repository arbeiten — immer in dieser Reihenfolge.</p>
+      <div class="jj-card">
+        <ol class="jj-steps">
+          <li>
+            <div class="jj-step-body">
+              <span class="jj-cmd">git pull</span>
+              <div class="jj-desc">Holt die neuesten Änderungen der anderen Person, <strong>bevor</strong> du anfängst zu arbeiten. So vermeidest du Konflikte.</div>
+            </div>
+          </li>
+          <li>
+            <div class="jj-step-body">
+              <span class="jj-desc" style="font-style:italic; color:var(--text-faint);">… jetzt deine Änderungen machen, Dateien bearbeiten, speichern …</span>
+            </div>
+          </li>
+          <li>
+            <div class="jj-step-body">
+              <span class="jj-cmd">git status</span>
+              <div class="jj-desc">Zeigt dir, welche Dateien du geändert, hinzugefügt oder gelöscht hast. Guter Zwischencheck, bevor du weitermachst.</div>
+            </div>
+          </li>
+          <li>
+            <div class="jj-step-body">
+              <span class="jj-cmd">git add .</span>
+              <div class="jj-desc">Merkt alle geänderten Dateien im aktuellen Ordner für den nächsten Commit vor (<em>„staging“</em>). Der Punkt steht für „alles hier“.</div>
+            </div>
+          </li>
+          <li>
+            <div class="jj-step-body">
+              <span class="jj-cmd">git commit -m "Kurze Beschreibung"</span>
+              <div class="jj-desc">Speichert die vorgemerkten Änderungen dauerhaft im Verlauf — mit einer kurzen Nachricht, was du gemacht hast.</div>
+            </div>
+          </li>
+          <li>
+            <div class="jj-step-body">
+              <span class="jj-cmd">git push</span>
+              <div class="jj-desc">Lädt deine Commits zum gemeinsamen Repository hoch, damit die andere Person sie auch sehen kann.</div>
+            </div>
+          </li>
+        </ol>
+      </div>
+      <div class="jj-callout jj-callout-tip">
+        <span class="jj-callout-icon">☺</span>
+        <span><strong>Merksatz:</strong> Erst <code>pull</code>, dann arbeiten, dann <code>add</code> → <code>commit</code> → <code>push</code>. Wenn <code>git push</code> mal ablehnt, meist hilft ein weiteres <code>git pull</code> davor — die andere Person war schneller.</span>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="jj-container">
+    <strong>J&amp;J Studios</strong> — internes Referenzdokument, kein Teil der öffentlichen Website.
+  </div>
+</footer>
+
+</body>
+</html>
