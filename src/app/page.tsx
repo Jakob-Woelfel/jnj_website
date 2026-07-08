@@ -8,6 +8,8 @@ import SectionHeading  from '@/components/layout/SectionHeading';
 import BrowserFrame    from '@/components/layout/BrowserFrame';
 import PhotoSlot       from '@/components/layout/PhotoSlot';
 import Stars           from '@/components/layout/Stars';
+import ScrollBackdrop  from '@/components/layout/ScrollBackdrop';
+import Reveal          from '@/components/layout/Reveal';
 import Icon            from '@/components/Icon';
 
 export const metadata: Metadata = {
@@ -55,45 +57,71 @@ export default function Startseite() {
     <div>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
+      <ScrollBackdrop />
+
       {/* HERO */}
       <div style={{ position: 'relative', overflow: 'hidden' }}>
-        <div className="jj-hero-grid" style={{ maxWidth: 'var(--container-max)', margin: '0 auto', padding: 'clamp(48px, 7vw, 88px) var(--gutter-lg)', display: 'grid', gridTemplateColumns: 'minmax(0, 1.05fr) minmax(0, 0.95fr)', gap: 'clamp(32px, 5vw, 72px)', alignItems: 'center' }}>
-          <div>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '9px', background: 'var(--surface-card)', border: '1px solid var(--border-default)', borderRadius: 'var(--radius-pill)', padding: '6px 14px 6px 8px', marginBottom: '26px', boxShadow: 'var(--shadow-xs)' }}>
+        {/* Ghost ampersand — echoes the logo, pure decoration */}
+        <span
+          aria-hidden
+          className="jj-hero-ghost"
+          style={{ position: 'absolute', zIndex: 0, top: '-0.18em', right: '-0.12em', fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontWeight: 500, fontSize: 'clamp(320px, 42vw, 640px)', lineHeight: 1, color: 'var(--green-200)', opacity: 0.45, transform: 'rotate(-8deg)', userSelect: 'none', pointerEvents: 'none' }}
+        >
+          &amp;
+        </span>
+        <div style={{ position: 'relative', zIndex: 1, maxWidth: 'var(--container-max)', margin: '0 auto', padding: 'clamp(56px, 8vw, 104px) var(--gutter-lg) clamp(48px, 7vw, 88px)' }}>
+          {/* Editorial headline block — the artwork */}
+          <div className="jj-fade-up" style={{ animationDelay: '0ms' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '9px', background: 'var(--surface-card)', border: '1px solid var(--border-default)', borderRadius: 'var(--radius-pill)', padding: '6px 14px 6px 8px', marginBottom: 'clamp(24px, 3vw, 40px)', boxShadow: 'var(--shadow-xs)' }}>
               <Stars n={5} size={15} />
               <span style={{ fontSize: '13.5px', fontWeight: 500, color: 'var(--text-muted)' }}>Vertraut von 40+ lokalen Unternehmen</span>
             </div>
-
-            <h1 style={{ fontFamily: 'var(--font-serif)', fontWeight: 500, fontSize: 'clamp(40px, 6vw, 64px)', lineHeight: 1.04, letterSpacing: '-0.025em', color: 'var(--text-strong)', margin: 0 }}>
-              Eine Website, die still{' '}
-              <em style={{ fontStyle: 'italic', color: 'var(--green-700)' }}>für Sie arbeitet.</em>
-            </h1>
-
-            <p style={{ marginTop: '22px', fontSize: 'clamp(18px, 2vw, 21px)', lineHeight: 1.6, color: 'var(--text-muted)', maxWidth: '46ch' }}>
-              Wir sind Jakob &amp; Jakob — zwei Leute, die schnelle, ansprechende Websites für kleine Unternehmen bauen. Genau die Art, die Besucher in Anrufe und Anfragen verwandelt. Kein Fachjargon, keine Überraschungen.
-            </p>
-
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', marginTop: '32px' }}>
-              <Button variant="accent" size="lg" href="/kontakt" iconRight={<Icon name="arrowRight" size={18} />}>
-                Kostenlos beraten lassen
-              </Button>
-              <Button variant="secondary" size="lg" href="/referenzen">
-                Unsere Referenzen
-              </Button>
-            </div>
-
-            <div style={{ display: 'flex', alignItems: 'center', gap: '18px', marginTop: '28px', fontSize: '14.5px', color: 'var(--text-faint)' }}>
-              <span style={{ display: 'inline-flex', alignItems: 'center', gap: '7px' }}>
-                <Icon name="check" size={17} style={{ color: 'var(--green-600)' }} /> Kostenlose Anfrage
-              </span>
-              <span style={{ display: 'inline-flex', alignItems: 'center', gap: '7px' }}>
-                <Icon name="check" size={17} style={{ color: 'var(--green-600)' }} /> Antwort innerhalb eines Tages
-              </span>
-            </div>
           </div>
 
-          <div style={{ position: 'relative' }}>
-            <BrowserFrame url="mueller-baeckerei.de">
+          <h1 className="jj-fade-up jj-hero-title" style={{ fontFamily: 'var(--font-serif)', fontWeight: 500, fontSize: 'clamp(48px, 7.5vw, 96px)', lineHeight: 1.02, letterSpacing: '-0.03em', color: 'var(--text-strong)', margin: 0, maxWidth: '14ch', animationDelay: '90ms' }}>
+            Eine Website, die still{' '}
+            <em style={{ fontStyle: 'italic', color: 'var(--green-700)' }}>
+              für Sie{' '}
+              <span style={{ position: 'relative', whiteSpace: 'nowrap' }}>
+                arbeitet.
+                <svg aria-hidden viewBox="0 0 300 24" preserveAspectRatio="none" style={{ position: 'absolute', left: '0.02em', bottom: '-0.16em', width: '96%', height: '0.2em', overflow: 'visible' }}>
+                  <path d="M6 17 C 60 5, 130 21, 185 12 S 272 7, 294 15" fill="none" stroke="var(--gold-500)" strokeWidth="8" strokeLinecap="round" opacity="0.9" />
+                </svg>
+              </span>
+            </em>
+          </h1>
+
+          {/* Lower row: lead + CTAs left, layered mockup right */}
+          <div className="jj-hero-grid" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)', gap: 'clamp(32px, 5vw, 80px)', alignItems: 'start', marginTop: 'clamp(28px, 4vw, 48px)' }}>
+            <div className="jj-fade-up" style={{ animationDelay: '180ms' }}>
+              <p style={{ margin: 0, fontSize: 'clamp(18px, 2vw, 21px)', lineHeight: 1.6, color: 'var(--text-muted)', maxWidth: '46ch' }}>
+                Wir sind Jakob &amp; Jakob — zwei Leute, die schnelle, ansprechende Websites für kleine Unternehmen bauen. Genau die Art, die Besucher in Anrufe und Anfragen verwandelt. Kein Fachjargon, keine Überraschungen.
+              </p>
+
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', marginTop: '32px' }}>
+                <Button variant="accent" size="lg" href="/kontakt" iconRight={<Icon name="arrowRight" size={18} />}>
+                  Kostenlos beraten lassen
+                </Button>
+                <Button variant="secondary" size="lg" href="/referenzen">
+                  Unsere Referenzen
+                </Button>
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: '18px', marginTop: '28px', fontSize: '14.5px', color: 'var(--text-faint)' }}>
+                <span style={{ display: 'inline-flex', alignItems: 'center', gap: '7px' }}>
+                  <Icon name="check" size={17} style={{ color: 'var(--green-600)' }} /> Kostenlose Anfrage
+                </span>
+                <span style={{ display: 'inline-flex', alignItems: 'center', gap: '7px' }}>
+                  <Icon name="check" size={17} style={{ color: 'var(--green-600)' }} /> Antwort innerhalb eines Tages
+                </span>
+              </div>
+            </div>
+
+            {/* Visual column — layered, slightly tilted */}
+            <div className="jj-fade-up jj-hero-visual" style={{ position: 'relative', transform: 'translateY(-72px) rotate(2deg)', animationDelay: '280ms' }}>
+              {/* Offset panel behind the mockup */}
+              <div aria-hidden style={{ position: 'absolute', inset: '-18px 18px 18px -18px', background: 'var(--green-100)', borderRadius: 'var(--radius-2xl)', transform: 'rotate(-3.5deg)' }} />
+              <BrowserFrame url="mueller-baeckerei.de" style={{ position: 'relative' }}>
               <div style={{ background: 'var(--surface-card)' }}>
                 <div style={{ padding: '20px 22px 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <span style={{ fontFamily: 'var(--font-serif)', fontWeight: 600, fontSize: '17px', color: 'var(--green-800)' }}>Bäckerei Müller</span>
@@ -123,33 +151,38 @@ export default function Startseite() {
                 <span style={{ display: 'block', fontFamily: 'var(--font-serif)', fontSize: '24px', fontWeight: 600, color: 'var(--text-strong)', lineHeight: 1 }}>2× mehr Anfragen</span>
                 <span style={{ display: 'block', fontSize: '13px', color: 'var(--text-faint)', marginTop: '3px' }}>im ersten Monat nach Launch</span>
               </span>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       {/* VERTRAUENSSTREIFEN */}
-      <div style={{ borderTop: '1px solid var(--border-subtle)', borderBottom: '1px solid var(--border-subtle)', background: 'var(--paper-2)' }}>
+      <div style={{ borderTop: '1px solid color-mix(in srgb, var(--green-200) 60%, transparent)', borderBottom: '1px solid color-mix(in srgb, var(--green-200) 60%, transparent)' }}>
         <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto', padding: '26px var(--gutter-lg)', display: 'flex', alignItems: 'center', gap: 'clamp(20px, 4vw, 56px)', flexWrap: 'wrap', justifyContent: 'center' }}>
           <span style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text-faint)', letterSpacing: '0.02em' }}>Vertraut von Unternehmen wie</span>
           {['Müller Bäckerei', 'Haus & Garten Weber', 'Zahnarztpraxis Alvarez', 'Café am Marktplatz', 'Hardy Sanitär'].map((n) => (
-            <span key={n} style={{ fontFamily: 'var(--font-serif)', fontSize: '18px', fontWeight: 600, color: 'var(--ink-400)' }}>{n}</span>
+            <span key={n} style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontSize: '18px', fontWeight: 500, color: 'var(--green-600)' }}>{n}</span>
           ))}
         </div>
       </div>
 
       {/* LEISTUNGEN */}
       <Section>
-        <SectionHeading eyebrow="Was wir tun" title="Drei klare Wege, wie wir helfen" lead="Egal, wo Sie gerade stehen — es gibt einen Einstieg, der zu Ihnen passt. Und eine echte Person auf der anderen Seite." />
+        <Reveal>
+          <SectionHeading eyebrow="Was wir tun" title="Drei klare Wege, wie wir helfen" lead="Egal, wo Sie gerade stehen — es gibt einen Einstieg, der zu Ihnen passt. Und eine echte Person auf der anderen Seite." />
+        </Reveal>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '22px' }}>
-          {SERVICES.map((s) => (
-            <Card key={s.title} padding="lg">
-              <span style={{ width: '52px', height: '52px', borderRadius: 'var(--radius-md)', background: 'var(--green-50)', color: 'var(--green-700)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '18px' }}>
-                <Icon name={s.icon} size={26} />
-              </span>
-              <h3 style={{ fontFamily: 'var(--font-sans)', fontWeight: 600, fontSize: '21px', color: 'var(--text-strong)', margin: '0 0 10px' }}>{s.title}</h3>
-              <p style={{ margin: 0, fontSize: '16px', lineHeight: 1.6, color: 'var(--text-muted)' }}>{s.body}</p>
-            </Card>
+          {SERVICES.map((s, i) => (
+            <Reveal key={s.title} delay={i * 110}>
+              <Card padding="lg" tone="cream" style={{ height: '100%', border: '1px solid color-mix(in srgb, var(--gold-300) 45%, var(--border-default))' }}>
+                <span style={{ width: '52px', height: '52px', borderRadius: 'var(--radius-md)', background: 'var(--green-100)', color: 'var(--green-700)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '18px' }}>
+                  <Icon name={s.icon} size={26} />
+                </span>
+                <h3 style={{ fontFamily: 'var(--font-sans)', fontWeight: 600, fontSize: '21px', color: 'var(--text-strong)', margin: '0 0 10px' }}>{s.title}</h3>
+                <p style={{ margin: 0, fontSize: '16px', lineHeight: 1.6, color: 'var(--text-muted)' }}>{s.body}</p>
+              </Card>
+            </Reveal>
           ))}
         </div>
       </Section>
@@ -182,25 +215,32 @@ export default function Startseite() {
 
       {/* TESTIMONIALS */}
       <Section>
-        <SectionHeading eyebrow="Was unsere Kunden sagen" title="Der Teil, auf den wir am stolzesten sind" lead="Wir messen unsere Arbeit daran, ob Ihr Telefon klingelt. Das sagen ein paar Unternehmer dazu." />
-        <div className="jj-testi-grid" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1.3fr) minmax(0, 1fr)', gap: '22px' }}>
-          <Testimonial featured rating={5} quote="Sie haben die ganze Sache schmerzlos gemacht. Ich habe ihnen erzählt, worum es in meiner Praxis geht — und ein paar Wochen später hatte ich eine Website, die wirklich zu uns passt. Das Telefon hat seitdem nicht aufgehört zu klingeln." name="Maria Alvarez" business="Inhaberin, Zahnarztpraxis Alvarez" />
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '22px' }}>
-            <Testimonial rating={5} quote="Kein Fachjargon, kein Hin und Her. Fühlte sich an, als würde man einen Freund beauftragen, der zufällig genial darin ist." name="Tom Becker" business="Becker &amp; Söhne Dach GmbH" />
-            <Testimonial rating={5} quote="Buchungen gingen in der ersten Woche rauf. Ehrlich gesagt wünschte ich, ich hätte das vor zwei Jahren gemacht." name="Priya Shah" business="Café am Marktplatz" />
+        <Reveal>
+          <SectionHeading eyebrow="Was unsere Kunden sagen" title="Der Teil, auf den wir am stolzesten sind" lead="Wir messen unsere Arbeit daran, ob Ihr Telefon klingelt. Das sagen ein paar Unternehmer dazu." />
+        </Reveal>
+        <Reveal delay={120}>
+          <div className="jj-testi-grid" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1.3fr) minmax(0, 1fr)', gap: '22px' }}>
+            <Testimonial featured rating={5} quote="Sie haben die ganze Sache schmerzlos gemacht. Ich habe ihnen erzählt, worum es in meiner Praxis geht — und ein paar Wochen später hatte ich eine Website, die wirklich zu uns passt. Das Telefon hat seitdem nicht aufgehört zu klingeln." name="Maria Alvarez" business="Inhaberin, Zahnarztpraxis Alvarez" />
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '22px' }}>
+              <Testimonial rating={5} quote="Kein Fachjargon, kein Hin und Her. Fühlte sich an, als würde man einen Freund beauftragen, der zufällig genial darin ist." name="Tom Becker" business="Becker &amp; Söhne Dach GmbH" />
+              <Testimonial rating={5} quote="Buchungen gingen in der ersten Woche rauf. Ehrlich gesagt wünschte ich, ich hätte das vor zwei Jahren gemacht." name="Priya Shah" business="Café am Marktplatz" />
+            </div>
           </div>
-        </div>
+        </Reveal>
       </Section>
 
       {/* FAQ */}
-      <Section bg="var(--paper-2)">
-        <div className="jj-faq-grid" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 0.85fr) minmax(0, 1.15fr)', gap: 'clamp(32px, 5vw, 64px)', alignItems: 'start' }}>
-          <SectionHeading align="left" eyebrow="Häufige Fragen" title="Was unsere Kunden am häufigsten fragen" lead="Und falls Ihre Frage nicht dabei ist — einfach schreiben. Wir sind nett." />
-          <Accordion defaultOpen={[0]} items={FAQS} />
-        </div>
+      <Section>
+        <Reveal>
+          <div className="jj-faq-grid" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 0.85fr) minmax(0, 1.15fr)', gap: 'clamp(32px, 5vw, 64px)', alignItems: 'start' }}>
+            <SectionHeading align="left" eyebrow="Häufige Fragen" title="Was unsere Kunden am häufigsten fragen" lead="Und falls Ihre Frage nicht dabei ist — einfach schreiben. Wir sind nett." />
+            <Accordion defaultOpen={[0]} items={FAQS} />
+          </div>
+        </Reveal>
       </Section>
 
       {/* CTA-BAND */}
+      <Reveal>
       <div style={{ padding: '0 var(--gutter-lg) var(--section-y)' }}>
         <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto', background: 'var(--surface-brand-deep)', borderRadius: 'var(--radius-2xl)', padding: 'clamp(40px, 6vw, 72px)', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
           <h2 style={{ fontFamily: 'var(--font-serif)', fontWeight: 500, fontSize: 'clamp(30px, 4.5vw, 46px)', lineHeight: 1.1, letterSpacing: '-0.02em', color: '#fff', margin: 0, maxWidth: '22ch', marginInline: 'auto' }}>
@@ -216,6 +256,7 @@ export default function Startseite() {
           </div>
         </div>
       </div>
+      </Reveal>
     </div>
   );
 }

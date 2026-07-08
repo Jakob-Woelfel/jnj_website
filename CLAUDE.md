@@ -44,7 +44,8 @@ src/
     forms/               ← Input, Textarea, Select, Checkbox
     content/             ← Testimonial, Accordion
     layout/              ← Nav, Footer, Section, SectionHeading,
-                            PhotoSlot, BrowserFrame, Stars
+                            PhotoSlot, BrowserFrame, Stars,
+                            Reveal, ScrollBackdrop
   styles/
     globals.css          ← @imports design/tokens.css + responsive helpers
 design/                  ← SOURCE OF TRUTH for tokens, brand, and screen specs
@@ -91,6 +92,8 @@ Most components are server components. Only these use `'use client'`:
 - `Accordion` — `useState` (open panels)
 - `Input`, `Textarea`, `Select`, `Checkbox` — `useId` for label association
 - `kontakt/page.tsx` — `useState` for form sent state
+- `Reveal` — `IntersectionObserver` scroll-reveal (fires once)
+- `ScrollBackdrop` — scroll-driven background colour drift + parallax shapes (Startseite)
 
 ## Adding a new page
 
@@ -117,7 +120,7 @@ Defined in `src/styles/globals.css`:
 - `≤ 920px` — two-column grids collapse to one column (hero, process, testimonials, FAQ, contact, before/after)
 - `≤ 720px` — desktop nav hides, mobile hamburger shows; form rows stack; floating hero card hides
 
-CSS class hooks used for responsive overrides: `.jj-hero-grid`, `.jj-process-grid`, `.jj-testi-grid`, `.jj-faq-grid`, `.jj-contact-grid`, `.jj-ba-grid`, `.jj-desktop-nav`, `.jj-mobile-toggle`, `.jj-form-row`, `.jj-float-card`.
+CSS class hooks used for responsive overrides: `.jj-hero-grid`, `.jj-process-grid`, `.jj-testi-grid`, `.jj-faq-grid`, `.jj-contact-grid`, `.jj-ba-grid`, `.jj-desktop-nav`, `.jj-mobile-toggle`, `.jj-form-row`, `.jj-float-card`, `.jj-hero-visual`, `.jj-hero-title`, `.jj-hero-ghost`.
 
 ## Assets
 
