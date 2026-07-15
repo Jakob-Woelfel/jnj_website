@@ -29,7 +29,7 @@ pnpm start    # preview the production build (after build)
 ## Folder structure
 
 ```
-assets/                  ← Next.js publicDir — served at /. Logo SVGs live here.
+public/                  ← Next.js public dir — served at /. Logo SVGs + Fotos (images/) live here.
 src/
   app/                   ← Next.js App Router
     layout.tsx           ← Root layout: fonts (next/font), Nav, Footer, metadata
@@ -124,12 +124,12 @@ CSS class hooks used for responsive overrides: `.jj-hero-grid`, `.jj-process-gri
 
 ## Assets
 
-Logo files in `assets/` are served by Next.js at the root path:
+Logo files in `public/` are served by Next.js at the root path:
 - `/logo-horizontal.svg` — used in Nav
 - `/logo-badge.svg` — used in Footer and as favicon
 - `/logo-wordmark.svg` — available for use
 
-Real photography goes in `assets/images/` when available. Placeholder: `<PhotoSlot>` component.
+Real photography goes in `public/images/` when available (see the README there for format rules). Placeholder: `<PhotoSlot>` component.
 
 ## Deployment
 
