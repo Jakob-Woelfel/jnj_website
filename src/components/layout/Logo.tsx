@@ -6,7 +6,7 @@ type LogoProps = {
 };
 
 export default function Logo({ variant = 'default', size = 30 }: LogoProps) {
-  const jjColor      = variant === 'onBrand' ? '#fff' : 'var(--green-800)';
+  const jjColor      = variant === 'onBrand' ? '#fff' : 'var(--teal-800)';
   const studiosColor = 'var(--text-on-brand-muted)';
 
   return (

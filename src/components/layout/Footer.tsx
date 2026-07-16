@@ -29,7 +29,7 @@ export default function Footer() {
           </div>
 
           <div style={col}>
-            <span style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--green-300)', marginBottom: '4px' }}>
+            <span style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--teal-300)', marginBottom: '4px' }}>
               Studio
             </span>
             {STUDIO_LINKS.map((l) => (
@@ -38,7 +38,7 @@ export default function Footer() {
           </div>
 
           <div style={col}>
-            <span style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--green-300)', marginBottom: '4px' }}>
+            <span style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--teal-300)', marginBottom: '4px' }}>
               Kontakt
             </span>
             <span style={{ display: 'flex', alignItems: 'center', gap: '9px', fontSize: '15px', color: 'var(--text-on-brand-muted)' }}>

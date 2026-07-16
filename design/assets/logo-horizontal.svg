@@ -2,9 +2,9 @@
   <defs>
     
   </defs>
-  <rect x="0" y="0" width="120" height="120" rx="28" fill="#1F4D3D"></rect>
+  <rect x="0" y="0" width="120" height="120" rx="28" fill="#16404A"></rect>
   <text x="60" y="79" text-anchor="middle" font-size="52" class="jj-letter">
-    <tspan fill="#EEF4F0">J</tspan><tspan fill="#E7B24C" dx="-1">&amp;</tspan><tspan fill="#EEF4F0" dx="-1">J</tspan>
+    <tspan fill="#EBF3F4">J</tspan><tspan fill="#E7B24C" dx="-1">&amp;</tspan><tspan fill="#EBF3F4" dx="-1">J</tspan>
   </text>
-  <text x="148" y="76" font-size="50" class="jj-word" fill="#16241D" letter-spacing="-0.5">Studios</text>
+  <text x="148" y="76" font-size="50" class="jj-word" fill="#172226" letter-spacing="-0.5">Studios</text>
 </svg>

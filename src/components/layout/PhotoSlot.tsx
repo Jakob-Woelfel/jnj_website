@@ -4,7 +4,7 @@ import Icon from '@/components/Icon';
 type Tone = 'green' | 'gold' | 'cream';
 
 const tones: Record<Tone, { bg: string; fg: string }> = {
-  green: { bg: 'linear-gradient(140deg, var(--green-100), var(--green-200))', fg: 'var(--green-700)' },
+  green: { bg: 'linear-gradient(140deg, var(--teal-100), var(--teal-200))', fg: 'var(--teal-700)' },
   gold:  { bg: 'linear-gradient(140deg, var(--gold-100), var(--gold-200))',   fg: 'var(--gold-800)' },
   cream: { bg: 'var(--surface-sunken)', fg: 'var(--text-faint)' },
 };

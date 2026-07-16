@@ -5,7 +5,7 @@ unter `/images/` ausgeliefert (z. B. `public/images/hintergrund.webp` → `/imag
 
 ## Konventionen
 
-- **Hintergrundfoto der Startseite:** `hintergrund.webp`
+- **Hero-Foto der Startseite:** `meer-felskueste.webp` (fest im Code referenziert)
 - Format: **WebP**, max. **2560 px Breite**, Zielgröße **< 500 KB**
 - Dateinamen klein, deutsch, mit Bindestrichen (z. B. `team-jakob-und-jakob.webp`)
 - Keine unkomprimierten Originale (Handy-JPG/HEIC) committen — erst verkleinern

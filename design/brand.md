@@ -42,7 +42,7 @@ They are often not technical and may feel intimidated by "web stuff." They choos
 **No emoji.** Warmth comes from words, type, and colour — not emoji. Icons are outline line-icons, used sparingly.
 
 **Example voice (German):**
-- Hero: *"Eine Website, die still ihren Dienst tut."*
+- Hero: *"Ihr Felsen in der Brandung."*
 - Sub: *"Wir sind Jakob & Jakob — zwei Menschen, die schnelle, freundliche Websites für kleine Unternehmen bauen. Die Art, die einen neugierigen Besucher in einen Anruf verwandelt."*
 - CTA: *"Kostenloses Gespräch buchen"* (not "Jetzt starten", not "Anfrage senden")
 - FAQ: *"Überhaupt nicht — die meisten unserer Kunden sind das nicht. Wir kümmern uns um die technische Seite und erklären alles in einfacher Sprache."*
@@ -52,16 +52,18 @@ They are often not technical and may feel intimidated by "web stuff." They choos
 
 ## Visual foundations
 
-**Overall feel:** calm, crafted, warm-premium. Editorial serif headlines over a cream page, deep-pine structure, a single warm-gold accent that means "do this." Generous white space is itself a trust signal.
+**Overall feel:** calm, clear, reliable — like the coast. The Atlantik concept: a real coastal photo anchors the Startseite hero, deep petrol carries the structure, spray-white pages, a single sand-gold accent that means "do this." Generous white space is itself a trust signal.
+
+**The motto pattern:** maritime metaphors are a copy device — "Ihr Felsen in der Brandung", "ruhigeres Fahrwasser". Use at most one per page, in a headline. Never stack them; the metaphor is seasoning, not sauce.
 
 ### Color
 
-- **Deep pine (`--green-800` #1F4D3D)** — brand anchor. Headings on light backgrounds, large dark surfaces (process section, footer, CTA band). Carries growth + stability without shouting.
-- **Interactive green (`--green-600` #2E6B52)** — links, default primary button, eyebrow labels.
-- **Warm gold (`--accent` #E7B24C)** — reserved for the *single* hero call-to-action. Never body text. Never more than one accent button visible at once. This scarcity is what makes CTAs pop.
-- **Cream paper (`--paper` #F6F4EE)** — the page. White (`--surface-card`) for raised cards. All neutrals are warm and green-tinted, never cold gray.
-- Section alternation pattern: cream → white → dark pine → cream. Depth comes from surface alternation, not gradients on text.
-- All primaries pass WCAG AA for text on light backgrounds. Gold is for fills paired with `--green-900` text.
+- **Deep petrol (`--teal-800` #16404A)** — brand anchor, drawn from the sea in the hero photo. Headings on light backgrounds, large dark surfaces (process section, footer, CTA band). Carries calm + stability without shouting.
+- **Interactive petrol (`--teal-600` #2E6B7A)** — links, default primary button, eyebrow labels.
+- **Sand gold (`--accent` #E7B24C)** — the *only warm colour* in the concept, reserved for the *single* hero call-to-action. Never body text. Never more than one accent button visible at once. This scarcity is what makes CTAs pop.
+- **Spray white (`--paper` #F4F6F5)** — the page. White (`--surface-card`) for raised cards. All neutrals are cool and slightly blue-tinted like wet rock — never beige, never pure gray.
+- Section alternation pattern: spray white → white → dark petrol → spray white. Depth comes from surface alternation, not gradients on text.
+- All primaries pass WCAG AA for text on light backgrounds. Gold is for fills paired with `--teal-900` text.
 
 ### Typography
 
@@ -86,7 +88,7 @@ Rounded but not bubbly: 10px inputs/buttons (`--radius-md`), 14px cards (`--radi
 
 ### Shadows
 
-Always warm green-tinted (`rgba(20,53,42,…)`), low spread, never gray/black. Five steps xs → xl. Cards use sm/md; popovers lg; modals xl.
+Always cool petrol-tinted (`rgba(16,51,59,…)`), low spread, never gray/black. Five steps xs → xl. Cards use sm/md; popovers lg; modals xl.
 
 ### Borders
 
@@ -98,24 +100,24 @@ Restrained and quick. 0.15s ease on hover color/background; 0.2s on card lift an
 
 ### Hover & press states
 
-- Buttons darken: accent→`--accent-hover`, primary→`--green-900`, secondary fills to `--surface-sunken`, ghost fills to `--green-50`.
-- Links shift to `--green-800`. Cards lift.
+- Buttons darken: accent→`--accent-hover`, primary→`--teal-900`, secondary fills to `--surface-sunken`, ghost fills to `--teal-50`.
+- Links shift to `--teal-800`. Cards lift.
 - Buttons nudge 1px downward on press. No aggressive shrink.
 
 ### Imagery
 
-Warm, natural, real — local storefronts, before/after screenshots, the two founders. No cold stock, no neon, no heavy filters. Represented in code by `<PhotoSlot>` tinted placeholder until real photos are supplied.
+Natural, real, unfiltered — the coastal photo (`/images/meer-felskueste.webp`) is the brand's visual anchor and fills the Startseite hero almost pure, tamed only by a petrol scrim for legibility. Beyond that: local storefronts, before/after screenshots, the two founders. No cold stock, no neon, no heavy filters. Represented in code by `<PhotoSlot>` tinted placeholder until real photos are supplied.
 
 ### Nav transparency
 
-Sticky nav uses cream at 88% opacity + backdrop-blur so content scrolls softly underneath. Sparingly elsewhere.
+Sticky nav uses spray white at 88% opacity + backdrop-blur so content scrolls softly underneath. On the Startseite the nav sits fixed over the hero photo: transparent with white text at the top, fading to the blur state after ~40px of scroll.
 
 ---
 
 ## Iconography
 
 - **Set:** [Lucide](https://lucide.dev) — outline icons, 24px grid, rounded caps/joins.
-- **Style rules:** stroke weight ~1.9, never filled except the rating star (filled gold). Icons sit in soft `--green-50` rounded tiles (44–52px) when used as feature/marker bullets, or inline at 16–22px next to text.
+- **Style rules:** stroke weight ~1.9, never filled except the rating star (filled gold). Icons sit in soft `--teal-50` rounded tiles (44–52px) when used as feature/marker bullets, or inline at 16–22px next to text. On the Startseite services they stand bare (no tile) — the minimal variant.
 - **Usage:** sparingly and functionally — service markers, reassurance bullets, CTA arrows, contact details, result stats. Icons support text; they never replace it.
 - **To add an icon:** copy path data from lucide.dev into `PATHS` in `src/components/Icon.jsx`.
 
@@ -133,7 +135,7 @@ Sticky nav uses cream at 88% opacity + backdrop-blur so content scrolls softly u
 Variants: `accent | primary | secondary | ghost`. Sizes: `sm | md | lg`.
 
 - `accent` (gold) — **one per view maximum**, the hero call-to-action.
-- `primary` (pine green) — normal actions.
+- `primary` (petrol) — normal actions.
 - `secondary` — lower-emphasis sibling to a primary.
 - `ghost` — tertiary / inline.
 

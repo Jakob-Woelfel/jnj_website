@@ -32,7 +32,7 @@
   transition: background 0.12s ease, border-color 0.12s ease;
 }
 
-.input:checked + .box { background: var(--green-600); border-color: var(--green-600); }
+.input:checked + .box { background: var(--teal-600); border-color: var(--teal-600); }
 .input:focus-visible + .box { box-shadow: var(--ring); }
 
 .tick { opacity: 0; }

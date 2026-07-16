@@ -12,12 +12,11 @@
   .jj-fade-up { animation: none; }
 }
 
-/* Responsive: collapse two-column grids to single column */
+/* Responsive: collapse multi-column grids to single column */
 @media (max-width: 920px) {
   .jj-hero-grid,
   .jj-process-grid,
-  .jj-testi-grid,
-  .jj-faq-grid,
+  .jj-services-grid,
   .jj-contact-grid,
   .jj-ba-grid {
     grid-template-columns: 1fr !important;
@@ -25,19 +24,15 @@
   .jj-ba-arrow {
     display: none !important;
   }
-  .jj-float-card {
-    display: none !important;
-  }
-  .jj-hero-visual {
-    transform: none !important;
-    margin-top: 12px !important;
-    max-width: 520px;
-  }
   .jj-hero-title {
-    font-size: clamp(42px, 11vw, 64px) !important;
+    font-size: clamp(44px, 11vw, 72px) !important;
   }
-  .jj-hero-ghost {
-    opacity: 0.25 !important;
+}
+
+@media (max-width: 720px) {
+  /* Hochformat-Foto: mittiger Ausschnitt, Fels bleibt rechts angeschnitten */
+  .jj-hero-photo {
+    object-position: 62% 50% !important;
   }
 }
 

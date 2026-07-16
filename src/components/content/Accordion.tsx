@@ -37,7 +37,7 @@ export function Accordion({ items = [], allowMultiple = false, defaultOpen = [] 
               style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px', padding: '20px 4px', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', fontFamily: 'var(--font-sans)', fontSize: '17px', fontWeight: 600, color: 'var(--text-strong)' }}
             >
               <span>{item.q}</span>
-              <span style={{ flex: 'none', width: '26px', height: '26px', borderRadius: '50%', background: isOpen ? 'var(--green-600)' : 'var(--green-50)', color: isOpen ? '#fff' : 'var(--green-700)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', transition: 'background .15s ease, transform .2s ease', transform: isOpen ? 'rotate(45deg)' : 'none', fontSize: '20px', lineHeight: 1 }}>
+              <span style={{ flex: 'none', width: '26px', height: '26px', borderRadius: '50%', background: isOpen ? 'var(--teal-600)' : 'var(--teal-50)', color: isOpen ? '#fff' : 'var(--teal-700)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', transition: 'background .15s ease, transform .2s ease', transform: isOpen ? 'rotate(45deg)' : 'none', fontSize: '20px', lineHeight: 1 }}>
                 +
               </span>
             </button>

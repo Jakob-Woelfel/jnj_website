@@ -15,12 +15,12 @@
 
 .accent   { background: var(--accent);       color: var(--text-on-accent); box-shadow: var(--shadow-sm); }
 .accent:hover  { background: var(--accent-hover); }
-.primary  { background: var(--green-800);    color: var(--text-on-brand);  box-shadow: var(--shadow-xs); }
-.primary:hover { background: var(--green-900); }
-.secondary { background: var(--surface-card); color: var(--green-800); border-color: var(--border-strong); }
+.primary  { background: var(--teal-800);    color: var(--text-on-brand);  box-shadow: var(--shadow-xs); }
+.primary:hover { background: var(--teal-900); }
+.secondary { background: var(--surface-card); color: var(--teal-800); border-color: var(--border-strong); }
 .secondary:hover { background: var(--surface-sunken); }
-.ghost    { background: transparent; color: var(--green-700); }
-.ghost:hover   { background: var(--green-50); }
+.ghost    { background: transparent; color: var(--teal-700); }
+.ghost:hover   { background: var(--teal-50); }
 
 .sm { font-size: 14px; padding: 8px 14px;   border-radius: var(--radius-md); gap: 7px; }
 .md { font-size: 15px; padding: 11px 20px;  border-radius: var(--radius-md); gap: 8px; }

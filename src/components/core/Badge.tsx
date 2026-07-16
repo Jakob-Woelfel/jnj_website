@@ -5,7 +5,7 @@ type Size = 'sm' | 'md';
 
 const palettes: Record<Variant, { bg: string; fg: string; dot: string }> = {
   neutral: { bg: 'var(--ink-100)',     fg: 'var(--ink-700)',    dot: 'var(--ink-400)' },
-  brand:   { bg: 'var(--green-100)',   fg: 'var(--green-800)',  dot: 'var(--green-600)' },
+  brand:   { bg: 'var(--teal-100)',   fg: 'var(--teal-800)',  dot: 'var(--teal-600)' },
   accent:  { bg: 'var(--gold-100)',    fg: 'var(--gold-800)',   dot: 'var(--gold-600)' },
   success: { bg: 'var(--success-100)', fg: 'var(--success-600)',dot: 'var(--success-600)' },
   warning: { bg: 'var(--warning-100)', fg: '#7a5510',           dot: 'var(--warning-600)' },

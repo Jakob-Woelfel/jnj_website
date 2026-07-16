@@ -44,8 +44,7 @@ src/
     forms/               ← Input, Textarea, Select, Checkbox
     content/             ← Testimonial, Accordion
     layout/              ← Nav, Footer, Section, SectionHeading,
-                            PhotoSlot, BrowserFrame, Stars,
-                            Reveal, ScrollBackdrop
+                            PhotoSlot, BrowserFrame, Stars, Reveal
   styles/
     globals.css          ← @imports design/tokens.css + responsive helpers
 design/                  ← SOURCE OF TRUTH for tokens, brand, and screen specs
@@ -59,15 +58,15 @@ design/                  ← SOURCE OF TRUTH for tokens, brand, and screen specs
 
 **Never modify files inside `design/`.** It is the upstream source of truth. Changes to brand tokens happen in `design/tokens.css` and are picked up automatically via `@import` in `src/styles/globals.css`.
 
-**Always use semantic tokens, not raw hex values.** Use `var(--green-800)` not `#1F4D3D`. Semantic aliases are in `design/tokens.css`.
+**Always use semantic tokens, not raw hex values.** Use `var(--teal-800)` not `#16404A`. Semantic aliases are in `design/tokens.css`.
 
-Key tokens to know:
-- `--surface-page` — cream page background
+Key tokens to know (Atlantik-Konzept: Petrol + Gischt-Weiß + Sand-Gold):
+- `--surface-page` — Gischt-weißer Seitenhintergrund
 - `--surface-card` — white card surface
-- `--surface-brand` — dark pine (process section, CTA band)
-- `--surface-brand-deep` — deeper pine (footer, CTA band inner)
+- `--surface-brand` — dark petrol (process section, CTA band)
+- `--surface-brand-deep` — deeper petrol (footer, CTA band inner)
 - `--text-strong / --text-body / --text-muted / --text-faint` — text hierarchy
-- `--text-on-brand / --text-on-brand-muted` — text on dark pine surfaces
+- `--text-on-brand / --text-on-brand-muted` — text on dark petrol surfaces
 - `--accent` — gold, **reserved for the single primary CTA only**
 - `--font-serif` — Newsreader via `var(--font-newsreader)` CSS variable, used for h1, h2, display, pull-quotes
 - `--font-sans` — Figtree via `var(--font-figtree)` CSS variable, used for h3/h4, body, all UI
@@ -88,12 +87,11 @@ import Section    from '@/components/layout/Section';
 
 Most components are server components. Only these use `'use client'`:
 - `Button` — handles `onClick`
-- `Nav` — `useState` (mobile menu), `usePathname` (active link)
+- `Nav` — `useState` (mobile menu, scrolled state), `usePathname` (active link, transparent-over-hero mode on `/`)
 - `Accordion` — `useState` (open panels)
 - `Input`, `Textarea`, `Select`, `Checkbox` — `useId` for label association
 - `kontakt/page.tsx` — `useState` for form sent state
 - `Reveal` — `IntersectionObserver` scroll-reveal (fires once)
-- `ScrollBackdrop` — scroll-driven background colour drift + parallax shapes (Startseite)
 
 ## Adding a new page
 
@@ -117,10 +115,10 @@ Open `src/components/Icon.tsx` and add the Lucide path data to the `PATHS` objec
 ## Responsive breakpoints
 
 Defined in `src/styles/globals.css`:
-- `≤ 920px` — two-column grids collapse to one column (hero, process, testimonials, FAQ, contact, before/after)
-- `≤ 720px` — desktop nav hides, mobile hamburger shows; form rows stack; floating hero card hides
+- `≤ 920px` — multi-column grids collapse to one column (hero ueber-uns, process, services, contact, before/after)
+- `≤ 720px` — desktop nav hides, mobile hamburger shows; form rows stack; hero photo shifts `object-position`
 
-CSS class hooks used for responsive overrides: `.jj-hero-grid`, `.jj-process-grid`, `.jj-testi-grid`, `.jj-faq-grid`, `.jj-contact-grid`, `.jj-ba-grid`, `.jj-desktop-nav`, `.jj-mobile-toggle`, `.jj-form-row`, `.jj-float-card`, `.jj-hero-visual`, `.jj-hero-title`, `.jj-hero-ghost`.
+CSS class hooks used for responsive overrides: `.jj-hero-grid`, `.jj-process-grid`, `.jj-services-grid`, `.jj-contact-grid`, `.jj-ba-grid`, `.jj-ba-arrow`, `.jj-desktop-nav`, `.jj-mobile-toggle`, `.jj-form-row`, `.jj-hero-title`, `.jj-hero-photo`.
 
 ## Assets
 
@@ -129,7 +127,7 @@ Logo files in `public/` are served by Next.js at the root path:
 - `/logo-badge.svg` — used in Footer and as favicon
 - `/logo-wordmark.svg` — available for use
 
-Real photography goes in `public/images/` when available (see the README there for format rules). Placeholder: `<PhotoSlot>` component.
+Real photography goes in `public/images/` (see the README there for format rules). The Startseite hero uses `/images/meer-felskueste.webp` full-viewport — it is the visual anchor of the Atlantik concept. Placeholder for everything else: `<PhotoSlot>` component.
 
 ## Deployment
 

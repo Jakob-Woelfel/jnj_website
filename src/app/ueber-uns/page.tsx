@@ -57,7 +57,7 @@ export default function UeberUns() {
               <Avatar name={m.name} size="xl" />
               <div>
                 <div style={{ fontFamily: 'var(--font-serif)', fontWeight: 600, fontSize: '22px', color: 'var(--text-strong)' }}>{m.name}</div>
-                <div style={{ fontSize: '14px', fontWeight: 600, color: 'var(--green-600)', letterSpacing: '0.02em', textTransform: 'uppercase', marginTop: '2px' }}>{m.rolle}</div>
+                <div style={{ fontSize: '14px', fontWeight: 600, color: 'var(--teal-600)', letterSpacing: '0.02em', textTransform: 'uppercase', marginTop: '2px' }}>{m.rolle}</div>
               </div>
               <p style={{ margin: 0, fontSize: '16px', lineHeight: 1.65, color: 'var(--text-muted)' }}>{m.bio}</p>
             </Card>
@@ -70,7 +70,7 @@ export default function UeberUns() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '22px' }}>
           {WERTE.map((w) => (
             <div key={w.title} style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-              <span style={{ width: '52px', height: '52px', borderRadius: 'var(--radius-md)', background: 'var(--green-50)', color: 'var(--green-700)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <span style={{ width: '52px', height: '52px', borderRadius: 'var(--radius-md)', background: 'var(--teal-50)', color: 'var(--teal-700)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <Icon name={w.icon} size={26} />
               </span>
               <h3 style={{ fontFamily: 'var(--font-sans)', fontWeight: 600, fontSize: '19px', color: 'var(--text-strong)', margin: 0 }}>{w.title}</h3>

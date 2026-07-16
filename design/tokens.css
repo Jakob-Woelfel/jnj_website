@@ -12,22 +12,22 @@
 
   /* ── Colors ─────────────────────────────────────────────── */
 
-  /* Pine green — primary brand
+  /* Petrol — primary brand (Atlantik-Konzept, aus dem Felsküsten-Foto)
      800 = brand anchor / headings on light / large dark surfaces
      600 = interactive UI / links / default primary button        */
-  --green-950: #0F2A20;
-  --green-900: #14352A;
-  --green-800: #1F4D3D;
-  --green-700: #265A47;
-  --green-600: #2E6B52;
-  --green-500: #3A8366;
-  --green-400: #5BA084;
-  --green-300: #8FBFAB;
-  --green-200: #C2DACE;
-  --green-100: #DEEBE4;
-  --green-50:  #EEF4F0;
+  --teal-950: #0C2B32;
+  --teal-900: #10333B;
+  --teal-800: #16404A;
+  --teal-700: #1D4F5B;
+  --teal-600: #2E6B7A;
+  --teal-500: #3A8496;
+  --teal-400: #5FA3B2;
+  --teal-300: #8FC0CB;
+  --teal-200: #C3DDE2;
+  --teal-100: #DFECEF;
+  --teal-50:  #EFF5F6;
 
-  /* Warm gold — CTA accent
+  /* Sand gold — CTA accent, die einzige Warmfarbe im Konzept
      Reserve for the ONE primary action visible at a time.
      Never body text. 500 = accent fill.                          */
   --gold-800: #9A6E1E;
@@ -40,42 +40,42 @@
   --gold-100: #FCF1DA;
   --gold-50:  #FDF8EC;
 
-  /* Warm neutrals — text, borders, surfaces
-     Green-tinted throughout. Never cold gray.                    */
-  --ink-950: #11201A;
-  --ink-900: #16241D;   /* strongest text */
-  --ink-800: #283129;
-  --ink-700: #3E463F;   /* body text */
-  --ink-600: #57605A;   /* secondary text */
-  --ink-500: #79817B;   /* muted / placeholder */
-  --ink-400: #9AA29B;   /* faint */
-  --ink-300: #C2C7BF;   /* strong borders */
-  --ink-200: #DCE0D6;   /* default borders */
-  --ink-150: #E7E9E0;   /* hairlines */
-  --ink-100: #F0F1EA;   /* sunken fills */
-  --paper:   #F6F4EE;   /* page background (cream) */
-  --paper-2: #FCFBF7;   /* slightly lighter — trusted-by strip, FAQ bg */
+  /* Fels-Neutrale — text, borders, surfaces
+     Cool, slightly blue-tinted like wet rock. Never warm beige.  */
+  --ink-950: #101B1F;
+  --ink-900: #172226;   /* strongest text */
+  --ink-800: #26333A;
+  --ink-700: #3B474C;   /* body text */
+  --ink-600: #566267;   /* secondary text */
+  --ink-500: #78848A;   /* muted / placeholder */
+  --ink-400: #98A4A9;   /* faint */
+  --ink-300: #C0C9CC;   /* strong borders */
+  --ink-200: #DAE0E2;   /* default borders */
+  --ink-150: #E6EAEB;   /* hairlines */
+  --ink-100: #EFF2F3;   /* sunken fills */
+  --paper:   #F4F6F5;   /* page background (Gischt-Weiß) */
+  --paper-2: #FAFCFB;   /* slightly lighter — quiet strips */
   --white:   #FFFFFF;
 
-  /* Status hues — tuned to the warm palette */
-  --success-600: #2E6B52;
-  --success-100: #DEEBE4;
+  /* Status hues — tuned to the cool palette */
+  --success-600: #2E7A5C;   /* sea green */
+  --success-100: #DEEEE6;
   --warning-600: #C8881F;
   --warning-100: #FBEBC8;
   --danger-700:  #9E3B23;
-  --danger-600:  #BF4A2C;   /* clay red — stays warm */
+  --danger-600:  #BF4A2C;   /* clay red — deliberate warm contrast */
   --danger-100:  #F7E0D7;
-  --info-600:    #2E6B7A;
-  --info-100:    #D8E8EA;
+  --info-600:    var(--teal-600);
+  --info-100:    var(--teal-100);
 
   /* Semantic surface aliases — build UI against these, not raw values */
   --surface-page:        var(--paper);
   --surface-card:        var(--white);
   --surface-card-cream:  var(--paper-2);
   --surface-sunken:      var(--ink-100);
-  --surface-brand:       var(--green-800);   /* process section, nav band */
-  --surface-brand-deep:  var(--green-900);   /* footer, CTA band inner */
-  --surface-brand-soft:  var(--green-50);    /* icon tiles, subtle tints */
+  --surface-brand:       var(--teal-800);    /* process section, nav band */
+  --surface-brand-deep:  var(--teal-900);    /* footer, CTA band inner */
+  --surface-brand-soft:  var(--teal-50);     /* icon tiles, subtle tints */
   --surface-accent-soft: var(--gold-50);
 
   /* Semantic text aliases */
@@ -83,29 +83,29 @@
   --text-body:           var(--ink-700);
   --text-muted:          var(--ink-600);
   --text-faint:          var(--ink-500);
-  --text-on-brand:       #EEF4F0;            /* on dark pine surfaces */
-  --text-on-brand-muted: #AFC6BB;
-  --text-on-accent:      var(--green-900);   /* text on gold fills */
-  --text-link:           var(--green-600);
-  --text-link-hover:     var(--green-800);
+  --text-on-brand:       #EBF3F4;            /* on dark petrol surfaces */
+  --text-on-brand-muted: #A9C6CC;
+  --text-on-accent:      var(--teal-900);    /* text on gold fills */
+  --text-link:           var(--teal-600);
+  --text-link-hover:     var(--teal-800);
 
   /* Semantic border aliases */
   --border-subtle:  var(--ink-150);
   --border-default: var(--ink-200);
   --border-strong:  var(--ink-300);
-  --border-brand:   var(--green-600);
+  --border-brand:   var(--teal-600);
 
   /* Interactive / brand role aliases */
-  --brand:             var(--green-800);
-  --brand-hover:       var(--green-900);
-  --interactive:       var(--green-600);
-  --interactive-hover: var(--green-700);
+  --brand:             var(--teal-800);
+  --brand-hover:       var(--teal-900);
+  --interactive:       var(--teal-600);
+  --interactive-hover: var(--teal-700);
   --accent:            var(--gold-500);      /* gold CTA */
   --accent-hover:      var(--gold-600);
   --accent-press:      var(--gold-700);
 
   /* Focus */
-  --focus-ring:        rgba(46, 107, 82, 0.40);
+  --focus-ring:        rgba(46, 107, 122, 0.40);
   --focus-ring-accent: rgba(231, 178, 76, 0.55);
 
   /* ── Typography ─────────────────────────────────────────── */
@@ -180,12 +180,12 @@
   --radius-2xl:  28px;   /* hero panels, CTA band, logo badge */
   --radius-pill: 999px;  /* badges, pill buttons */
 
-  /* Shadows — warm green-tinted, never gray/black */
-  --shadow-xs: 0 1px 2px rgba(20, 53, 42, 0.06);
-  --shadow-sm: 0 1px 3px rgba(20, 53, 42, 0.08), 0 1px 2px rgba(20, 53, 42, 0.05);
-  --shadow-md: 0 6px 16px rgba(20, 53, 42, 0.09), 0 2px 4px rgba(20, 53, 42, 0.05);
-  --shadow-lg: 0 16px 36px rgba(20, 53, 42, 0.12), 0 4px 10px rgba(20, 53, 42, 0.06);
-  --shadow-xl: 0 28px 60px rgba(20, 53, 42, 0.16);
+  /* Shadows — cool petrol-tinted, never gray/black */
+  --shadow-xs: 0 1px 2px rgba(16, 51, 59, 0.06);
+  --shadow-sm: 0 1px 3px rgba(16, 51, 59, 0.08), 0 1px 2px rgba(16, 51, 59, 0.05);
+  --shadow-md: 0 6px 16px rgba(16, 51, 59, 0.09), 0 2px 4px rgba(16, 51, 59, 0.05);
+  --shadow-lg: 0 16px 36px rgba(16, 51, 59, 0.12), 0 4px 10px rgba(16, 51, 59, 0.06);
+  --shadow-xl: 0 28px 60px rgba(16, 51, 59, 0.16);
 
   --ring:        0 0 0 3px var(--focus-ring);
   --ring-accent: 0 0 0 3px var(--focus-ring-accent);
@@ -236,7 +236,7 @@ a:hover { color: var(--text-link-hover); }
 
 strong, b { font-weight: var(--fw-semibold); color: var(--text-strong); }
 
-::selection { background: var(--green-200); color: var(--green-900); }
+::selection { background: var(--teal-200); color: var(--teal-900); }
 
 :focus-visible {
   outline: none;

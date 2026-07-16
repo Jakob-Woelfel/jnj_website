@@ -34,7 +34,7 @@ export default function Referenzen() {
                 <Badge variant="brand">Ausgewählt</Badge>
                 <span style={{ fontFamily: 'var(--font-serif)', fontSize: '22px', fontWeight: 600, color: 'var(--text-strong)' }}>Zahnarztpraxis Alvarez</span>
               </div>
-              <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', fontSize: '15px', fontWeight: 600, color: 'var(--green-700)' }}>
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', fontSize: '15px', fontWeight: 600, color: 'var(--teal-700)' }}>
                 <Icon name="trendingUp" size={19} /> Neupatientenanfragen verdoppelt
               </span>
             </div>
@@ -43,11 +43,11 @@ export default function Referenzen() {
                 <div style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-faint)', marginBottom: '10px' }}>Vorher</div>
                 <PhotoSlot label="Alte Website" icon="x" ratio="16 / 10" tone="cream" />
               </div>
-              <span className="jj-ba-arrow" style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--green-600)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-sm)' }}>
+              <span className="jj-ba-arrow" style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--teal-600)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-sm)' }}>
                 <Icon name="arrowRight" size={20} />
               </span>
               <div>
-                <div style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--green-700)', marginBottom: '10px' }}>Nachher</div>
+                <div style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--teal-700)', marginBottom: '10px' }}>Nachher</div>
                 <PhotoSlot label="Neue Website" icon="check" ratio="16 / 10" tone="green" />
               </div>
             </div>
@@ -65,7 +65,7 @@ export default function Referenzen() {
                 <Badge variant="neutral" size="sm">{c.tag}</Badge>
                 <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '23px', fontWeight: 600, color: 'var(--text-strong)', margin: '12px 0 8px' }}>{c.title}</h3>
                 <p style={{ margin: '0 0 16px', fontSize: '15.5px', lineHeight: 1.6, color: 'var(--text-muted)' }}>{c.blurb}</p>
-                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', fontSize: '14.5px', fontWeight: 600, color: 'var(--green-700)', background: 'var(--green-50)', padding: '8px 13px', borderRadius: 'var(--radius-md)' }}>
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', fontSize: '14.5px', fontWeight: 600, color: 'var(--teal-700)', background: 'var(--teal-50)', padding: '8px 13px', borderRadius: 'var(--radius-md)' }}>
                   <Icon name="trendingUp" size={17} /> {c.result}
                 </div>
               </div>

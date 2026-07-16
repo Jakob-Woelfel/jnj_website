@@ -10,7 +10,8 @@ Layout shorthand: `A | B` = two-column grid that collapses to 1 column at ≤920
 
 ### Nav — sticky, all pages
 
-Surface: cream at 88% opacity + backdrop-blur. 1px bottom border (`--border-subtle`) appears on scroll.
+Surface: spray white at 88% opacity + backdrop-blur, 1px bottom border (`--border-subtle`).
+**Startseite exception:** nav is `position: fixed` over the full-viewport hero photo — transparent with white links and `onBrand` logo while at the top, transitioning to the blur surface after ~40px scroll (also when the mobile drawer opens).
 
 Left: `/logo-horizontal.svg` linked to `/`.
 Center (desktop): links — Startseite / Leistungen / Referenzen / Über uns.
@@ -20,7 +21,7 @@ Mobile (≤720px): hamburger toggle replaces desktop nav. Drawer slides in with 
 
 ### Footer — all pages
 
-Surface: `--surface-brand-deep` (darkest pine).
+Surface: `--surface-brand-deep` (darkest petrol).
 
 Left: `/logo-badge.svg` + one-liner tagline + copyright.
 Right: nav links in two columns (Leistungen, Referenzen, Über uns, Kontakt) + contact details (email, phone).
@@ -31,97 +32,56 @@ Bottom strip: privacy microcopy.
 
 ## / — Startseite (Home)
 
-### 1. Hero
+Deliberately minimal: five sections, one photo, one motto, little chrome. The hero photo is the artwork — everything after it stays quiet.
 
-Surface: `--surface-page` (cream).
-Layout: `Content (1.05fr) | Visual (0.95fr)`, collapses at ≤920px.
+### 1. Hero — full-viewport photo
 
-**Left — content:**
-- Trust pill (pill-shaped badge with 5 stars + "Trusted by 40+ local businesses") — white bg, `--shadow-xs`.
-- H1 (serif, clamp 40–64px): *"Eine Website, die still ihren Dienst tut."* — italic emphasis word in `--green-700`.
-- Lead (clamp 18–21px, `--text-muted`): "Wir sind Jakob & Jakob — zwei Menschen, die schnelle, freundliche Websites für kleine Unternehmen bauen. Die Art, die einen neugierigen Besucher in einen Anruf verwandelt. Kein Fachjargon, keine Überraschungen."
-- CTA row: `<Button variant="accent" size="lg" iconRight={arrowRight}>Kostenloses Gespräch buchen</Button>` + `<Button variant="secondary" size="lg">Unsere Arbeit sehen</Button>`.
-- Reassurance row (small text, `--text-faint`): ✓ Kostenloses Angebot · ✓ Antwort innerhalb eines Tages.
+Layout: `min-height: 100svh`, content bottom-left, no grid.
 
-**Right — visual:**
-- `<BrowserFrame>` showing a mock client site ("Bloom & Branch" florist).
-- Floating stat card (`.jj-float-card`, hidden ≤920px): white card `--shadow-lg`, positioned bottom-left of browser frame. Icon tile (trendingUp, `--green-50` bg) + serif number "2× mehr Anrufe" + caption "im ersten Monat live".
+- Photo: `/images/meer-felskueste.webp` (`.jj-hero-photo`), `object-fit: cover`, `object-position: 70% 45%` desktop / `62% 50%` ≤720px — the rock stays right, the surf lower left.
+- Scrim: petrol gradient (`rgba(12,43,50,0.82)` bottom-left → transparent top-right) for text legibility; a second thin top gradient keeps the transparent nav readable. The photo stays almost pure across most of its area.
+- H1 (white serif, clamp 52–104px, max 13ch): *"Ihr Felsen in der Brandung."* — "Brandung" italic with the gold underline SVG.
+- Lead (white 88%, clamp 17–20px, max 44ch): "Wir sind Jakob & Jakob. Wir bauen Websites, die ruhig und zuverlässig für Ihr Unternehmen arbeiten — kein Fachjargon, keine Überraschungen."
+- CTA row: `<Button variant="accent" size="lg" iconRight={arrowRight}>Kostenlos beraten lassen</Button>` + plain white underlined text link "Unsere Referenzen".
 
-### 2. Trusted-by strip
+No trust pill, no browser mockup, no floating stat card, no ghost ampersand, no scroll backdrop.
 
-Surface: `--paper-2`. 1px border top + bottom (`--border-subtle`). Padding 26px.
-
-Label: "Vertrauen von lokalen Unternehmen wie" (small, faint, tracked).
-Names: 5 placeholder business names in serif, `--ink-400`. Flex row, wraps on mobile.
-
-### 3. Leistungen / Services
+### 2. Leistungen / Services
 
 Surface: `--surface-page`.
-Section heading (eyebrow + h2 + lead): eyebrow "Was wir tun", title "Drei einfache Wege, wie wir helfen", lead supporting copy.
+Section heading: eyebrow "Was wir tun", title *"Drei Wege in ruhigeres Fahrwasser"*, one-line lead.
 
-3-column auto-fit grid (`minmax(280px, 1fr)`), each a `<Card padding="lg">`:
-- Icon tile (52×52px, `--green-50` bg, `--green-700` icon, `--radius-md`).
-- H3 card title (sans 600, 21px).
-- Body copy (16px, `--text-muted`).
+3-column grid (`.jj-services-grid`, collapses ≤920px) — **no cards**: bare icon (28px, `--teal-600`), H3 (sans 600, 20px), exactly one sentence of body copy each.
 
-Three services:
-1. **Neue Website** (penTool icon) — kein vorhandener Auftritt oder Neustart.
-2. **Redesign / Refresh** (layout icon) — bestehende Site modernisieren.
-3. **Laufende Betreuung** (heart icon) — Updates, Änderungen, fester Ansprechpartner nach dem Launch.
+1. **Neuer Webauftritt** (penTool)
+2. **Redesign & Modernisierung** (layout)
+3. **Wartung & Web-Branding** (heart)
 
-### 4. Prozess / Process
+### 3. Prozess / Process
 
-Surface: `--surface-brand` (dark pine). White and `--text-on-brand-muted` text.
+Surface: `--surface-brand` (dark petrol) — the only dark section. White and `--text-on-brand-muted` text.
 Layout: `Intro (0.8fr) | Steps (1.2fr)`, collapses at ≤920px.
 
-**Left:**
-- Eyebrow: "Wie es funktioniert" (`--green-300`).
-- H2 (white, serif, clamp 28–40px): "Einfach von Hallo bis Launch."
-- Lead (`--text-on-brand-muted`): "Sie müssen nichts Technisches wissen. Das ist unser Job. Hier ist alles, von Anfang bis Ende."
+**Left:** eyebrow "So läuft es ab" (`--teal-300`), H2 "Einfach — von Hallo bis Launch.", one-line lead.
+**Right — numbered steps** (dividers rgba white 14%): number in `--gold-400` serif, H3 title, one sentence each.
 
-**Right — numbered steps** (flex column, dividers between steps in rgba white 14%):
-- Step number in `--gold-400` serif (22px).
-- H3 step title (white, sans 600, 19px).
-- Body (`--text-on-brand-muted`, 16px).
+1. **01 — Das erste Gespräch**
+2. **02 — Wir designen & entwickeln**
+3. **03 — Launch & langfristige Betreuung**
 
-Three steps:
-1. **01 — Ein freundliches Gespräch** — entspannter Anruf, kein Fachjargon, kein Druck.
-2. **02 — Wir designen & bauen** — echte Designs früh und oft, technische Umsetzung.
-3. **03 — Launch & Betreuung** — live gehen, Einführung, Ansprechpartner danach.
+### 4. Ein Zitat — bare pull-quote
 
-### 5. Testimonials
+Surface: `--surface-page`. Centered `<figure>`, max 760px — **no card, no grid**.
+5 gold stars, serif blockquote (clamp 24–34px), caption with real name + business (Maria Alvarez, Zahnarztpraxis Alvarez).
 
-Surface: `--surface-page`.
-Section heading: eyebrow "In ihren Worten", title "Das, worauf wir am stolzesten sind", lead "Wir messen unsere Arbeit daran, ob Ihr Telefon klingelt."
+### 5. CTA-Band
 
-Layout: `Featured (1.3fr) | Two stacked (1fr)`, collapses at ≤920px.
-- `<Testimonial featured rating={5}>` — large variant, left.
-- Two standard `<Testimonial rating={5}>` stacked right.
-
-All with real name + business name. Featured quote about painlessness + phone ringing.
-
-### 6. FAQ
-
-Surface: `--paper-2`.
-Layout: `Heading (0.85fr) | Accordion (1.15fr)`, collapses at ≤920px.
-
-Section heading (left-aligned): eyebrow "Gute Fragen", title "Was uns am meisten gefragt wird", lead "Und wenn Ihre Frage nicht dabei ist, fragen Sie einfach — wir sind freundlich."
-
-`<Accordion defaultOpen={[0]}>` — 5 items:
-1. Was kostet eine Website? → Fester Preis im Voraus, keine Überraschungsrechnungen.
-2. Wie lange dauert das? → 2–4 Wochen, realistischer Zeitplan von Anfang an.
-3. Ich bin überhaupt nicht technisch. Ist das ein Problem? → Nein, die meisten Kunden auch nicht.
-4. Wem gehört die Website? → Ihnen. Vollständig.
-5. Was passiert nach dem Launch? → Fester Ansprechpartner, einfache Monatspakete.
-
-### 7. CTA-Band
-
-Surface: `--surface-brand-deep` (deepest pine), `--radius-2xl`, inside cream page padding — floats as a contained band.
+Surface: `--surface-brand-deep` (deepest petrol), `--radius-2xl`, inside page padding — floats as a contained band.
 
 Center-aligned:
-- H2 (white, serif, clamp 30–46px): "Lassen Sie uns etwas bauen, auf das Sie stolz sind."
-- Lead (`--text-on-brand-muted`, 19px, max 50ch).
-- `<Button variant="accent" size="lg" iconRight={arrowRight}>Kostenloses Gespräch buchen</Button>`.
+- H2 (white, serif, clamp 30–46px): *"Bereit für ruhigeres Fahrwasser?"*
+- Lead (`--text-on-brand-muted`, 19px, max 50ch, one sentence).
+- `<Button variant="accent" size="lg" iconRight={arrowRight}>Jetzt kostenlos beraten lassen</Button>`.
 
 ---
 
@@ -163,15 +123,15 @@ Header row: `<Badge variant="brand">Featured</Badge>` + client name (serif 22px)
 
 Before/after grid (`1fr auto 1fr`, collapses — arrow hidden at ≤920px):
 - Left: "Before" label (faint caps) + `<PhotoSlot>` (old site).
-- Center: circular arrow button (`--green-600` bg, white icon, 40px).
-- Right: "After" label (`--green-700`) + `<PhotoSlot>` (new site).
+- Center: circular arrow button (`--teal-600` bg, white icon, 40px).
+- Right: "After" label (`--teal-700`) + `<PhotoSlot>` (new site).
 
 ### 3. Case study grid
 
 3-column auto-fit grid (`minmax(300px, 1fr)`).
 Each `<Card interactive padding="none">`:
 - `<PhotoSlot>` full-width top (16:10 ratio, `--radius-lg` top corners only).
-- Padding body: `<Badge variant="neutral" size="sm">` tag, H3 client name (serif 23px), blurb (15.5px, `--text-muted`), result chip (trendingUp icon + stat in `--green-50` pill).
+- Padding body: `<Badge variant="neutral" size="sm">` tag, H3 client name (serif 23px), blurb (15.5px, `--text-muted`), result chip (trendingUp icon + stat in `--teal-50` pill).
 
 Three cases: Alvarez Dental / Pine Street Cafe / Becker Roofing, each with a concrete outcome number.
 
@@ -225,7 +185,7 @@ Three reassurance bullets (icon tile + title + body):
 2. **Kein Druck, nie** (messageCircle) — erstes Gespräch ist nur ein Gespräch.
 3. **Klare Festpreise** (shieldCheck) — Preis im Voraus, keine Überraschungen.
 
-Divider, then contact details: email + phone with `--green-600` icons.
+Divider, then contact details: email + phone with `--teal-600` icons.
 
 ### Right column — form
 
@@ -243,7 +203,18 @@ Divider, then contact details: email + phone with `--green-600` icons.
 
 **Success state (after submit):**
 - Center-aligned in the card.
-- 64×64px circular icon tile (`--green-50` bg, check icon `--green-600`).
+- 64×64px circular icon tile (`--teal-50` bg, check icon `--teal-600`).
 - H3 (serif 26px): "Danke — Nachricht erhalten!"
 - Body (max 34ch): "Einer von uns (ein Jakob) meldet sich innerhalb eines Tages. Bis bald."
 - `<Button variant="secondary">Weitere Nachricht senden</Button>`.
+
+### FAQ — below the grid (moved here from the Startseite)
+
+Narrow column (`--container-narrow`), centered heading: eyebrow "Häufige Fragen", serif H2 "Was unsere Kunden am häufigsten fragen", one-line lead pointing at the form.
+
+`<Accordion defaultOpen={[0]}>` — 5 items:
+1. Was kostet eine Website? → Fester Preis im Voraus, keine Überraschungsrechnungen.
+2. Wie lange dauert es? → 2–4 Wochen, realistischer Zeitplan von Anfang an.
+3. Ich bin überhaupt nicht technikaffin — ist das ein Problem? → Nein, die meisten Kunden auch nicht.
+4. Wem gehört die Website hinterher? → Ihnen. Vollständig.
+5. Was passiert nach dem Launch? → Fester Ansprechpartner, einfache Monatspakete.
