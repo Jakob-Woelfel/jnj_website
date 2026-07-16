@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { Button } from '@/components/core/Button';
 import Icon from '@/components/Icon';
+import Logo from '@/components/layout/Logo';
 
 const LINKS = [
   { href: '/',           label: 'Startseite', exact: true },
@@ -26,7 +27,7 @@ export default function Nav() {
     <header style={{ position: 'sticky', top: 0, zIndex: 50, background: 'color-mix(in srgb, var(--paper) 88%, transparent)', backdropFilter: 'saturate(140%) blur(10px)', borderBottom: '1px solid var(--border-subtle)' }}>
       <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto', padding: '14px var(--gutter-lg)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '20px' }}>
         <Link href="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
-          <img src="/logo-horizontal.svg" alt="J&J Studios" style={{ height: '44px', display: 'block' }} />
+          <Logo />
         </Link>
 
         <nav style={{ display: 'flex', alignItems: 'center', gap: '6px' }} className="jj-desktop-nav">

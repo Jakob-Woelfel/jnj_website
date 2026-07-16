@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Icon from '@/components/Icon';
+import Logo from '@/components/layout/Logo';
 
 const col = { display: 'flex', flexDirection: 'column' as const, gap: '10px' };
 const linkStyle = { textDecoration: 'none', fontFamily: 'var(--font-sans)', fontSize: '15px', color: 'var(--text-on-brand-muted)', transition: 'color .15s ease' };
@@ -19,9 +20,8 @@ export default function Footer() {
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '48px', justifyContent: 'space-between' }}>
 
           <div style={{ maxWidth: '300px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
-              <img src="/logo-badge.svg" alt="" style={{ height: '40px' }} />
-              <span style={{ fontFamily: 'var(--font-serif)', fontSize: '22px', color: '#fff' }}>J&amp;J Studios</span>
+            <div style={{ marginBottom: '16px' }}>
+              <Logo variant="onBrand" size={26} />
             </div>
             <p style={{ margin: 0, fontSize: '15px', lineHeight: 1.6, color: 'var(--text-on-brand-muted)' }}>
               Zwei Leute, die schnelle, ansprechende Websites für kleine Unternehmen bauen. Wir verschwinden nicht nach dem Launch.
