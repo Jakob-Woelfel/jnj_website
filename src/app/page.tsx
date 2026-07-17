@@ -66,7 +66,7 @@ export default function Startseite() {
               <span style={{ position: 'relative', whiteSpace: 'nowrap' }}>
                 Brandung.
                 <svg aria-hidden viewBox="0 0 300 24" preserveAspectRatio="none" style={{ position: 'absolute', left: '0.02em', bottom: '-0.16em', width: '96%', height: '0.2em', overflow: 'visible' }}>
-                  <path d="M6 17 C 60 5, 130 21, 185 12 S 272 7, 294 15" fill="none" stroke="var(--gold-500)" strokeWidth="8" strokeLinecap="round" opacity="0.9" />
+                  <path d="M6 17 C 60 5, 130 21, 185 12 S 272 7, 294 15" fill="none" stroke="var(--accent)" strokeWidth="8" strokeLinecap="round" opacity="0.9" />
                 </svg>
               </span>
             </em>
@@ -120,7 +120,7 @@ export default function Startseite() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
             {STEPS.map((st, i) => (
               <div key={st.n} style={{ display: 'flex', gap: '20px', padding: '22px 0', borderTop: i === 0 ? 'none' : '1px solid rgba(255,255,255,0.14)' }}>
-                <span style={{ fontFamily: 'var(--font-serif)', fontSize: '22px', fontWeight: 500, color: 'var(--gold-400)', flex: 'none', width: '40px' }}>{st.n}</span>
+                <span style={{ fontFamily: 'var(--font-serif)', fontSize: '22px', fontWeight: 500, color: 'var(--rose-400)', flex: 'none', width: '40px' }}>{st.n}</span>
                 <div>
                   <h3 style={{ fontFamily: 'var(--font-sans)', fontWeight: 600, fontSize: '19px', color: '#fff', margin: '0 0 6px' }}>{st.title}</h3>
                   <p style={{ margin: 0, fontSize: '16px', lineHeight: 1.6, color: 'var(--text-on-brand-muted)' }}>{st.body}</p>
@@ -131,8 +131,8 @@ export default function Startseite() {
         </div>
       </Section>
 
-      {/* EIN ZITAT — nackter Pull-Quote, keine Box */}
-      <Section>
+      {/* EIN ZITAT — nackter Pull-Quote auf warmer Muschel-Fläche */}
+      <Section bg="var(--surface-shell)">
         <Reveal>
           <figure style={{ margin: '0 auto', maxWidth: '760px', textAlign: 'center' }}>
             <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '22px' }}>

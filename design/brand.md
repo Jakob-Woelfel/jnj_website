@@ -52,7 +52,7 @@ They are often not technical and may feel intimidated by "web stuff." They choos
 
 ## Visual foundations
 
-**Overall feel:** calm, clear, reliable — like the coast. The Atlantik concept: a real coastal photo anchors the Startseite hero, deep petrol carries the structure, spray-white pages, a single sand-gold accent that means "do this." Generous white space is itself a trust signal.
+**Overall feel:** calm, clear, reliable — like the coast. The Atlantik concept: a real coastal photo anchors the Startseite hero, deep petrol carries the structure, spray-white pages, lagoon-mint tints and a warm shell surface soften it, and a single muted rosé accent means "do this." Generous white space is itself a trust signal.
 
 **The motto pattern:** maritime metaphors are a copy device — "Ihr Felsen in der Brandung", "ruhigeres Fahrwasser". Use at most one per page, in a headline. Never stack them; the metaphor is seasoning, not sauce.
 
@@ -60,16 +60,18 @@ They are often not technical and may feel intimidated by "web stuff." They choos
 
 - **Deep petrol (`--teal-800` #16404A)** — brand anchor, drawn from the sea in the hero photo. Headings on light backgrounds, large dark surfaces (process section, footer, CTA band). Carries calm + stability without shouting.
 - **Interactive petrol (`--teal-600` #2E6B7A)** — links, default primary button, eyebrow labels.
-- **Sand gold (`--accent` #E7B24C)** — the *only warm colour* in the concept, reserved for the *single* hero call-to-action. Never body text. Never more than one accent button visible at once. This scarcity is what makes CTAs pop.
-- **Spray white (`--paper` #F4F6F5)** — the page. White (`--surface-card`) for raised cards. All neutrals are cool and slightly blue-tinted like wet rock — never beige, never pure gray.
-- Section alternation pattern: spray white → white → dark petrol → spray white. Depth comes from surface alternation, not gradients on text.
-- All primaries pass WCAG AA for text on light backgrounds. Gold is for fills paired with `--teal-900` text.
+- **Rosé (`--accent` #D68FA1)** — the *only strong warm colour* in the concept, reserved for the *single* hero call-to-action. Muted, never candy-pink. Never body text. Never more than one accent button visible at once. This scarcity is what makes CTAs pop. Rating stars fill in `--rose-500`.
+- **Lagune (`--lagune-*`, anchor #2D5652 / mint #97D3CD / tint #E4F2EA)** — green-mint secondary family: icon tiles (`--surface-lagune-soft`), soft section tints, second dark surface beside petrol, success status.
+- **Muschel (`--surface-shell` #EFEAE6)** — warm rosé-white surface for calm section bands. The one deliberate exception to the cool-neutrals rule; a surface colour only, never for text.
+- **Spray white (`--paper` #F4F6F5)** — the page. White (`--surface-card`) for raised cards. All other neutrals are cool and slightly blue-tinted like wet rock — never beige, never pure gray.
+- Section alternation pattern: spray white → white → dark petrol → Muschel/Lagune tint → spray white. Depth comes from surface alternation, not gradients on text.
+- All primaries pass WCAG AA for text on light backgrounds. Rosé is for fills paired with `--teal-950` text (5.9:1).
 
 ### Typography
 
 - **Newsreader** (serif), weight 500, tracking −0.02em, line-height ~1.05 — display, H1, H2, pull-quotes. The "established, knows-their-craft" signal. Italic used for the warm emphasis word in a headline.
 - **Figtree** (sans) — H3/H4 (600), body (400, 17px/1.6), all UI. Clean and modern, keeps it from feeling old-fashioned.
-- Eyebrows: 12px, 700, uppercase, 0.12em tracking, `--interactive` green.
+- Eyebrows: 12px, 700, uppercase, 0.12em tracking, `--interactive` petrol.
 
 ### Spacing & layout
 
@@ -80,7 +82,7 @@ They are often not technical and may feel intimidated by "web stuff." They choos
 ### Cards & surfaces
 
 - White surface, `--radius-lg` (14px), 1px `--border-default` hairline, `--shadow-sm`. Interactive cards lift 3px with `--shadow-lg` on hover.
-- Tones available: `white` / `cream` / `brand` (dark pine) / `soft` (green-50 tint).
+- Tones available: `white` / `cream` / `brand` (dark petrol) / `soft` (Lagune-mint tint).
 
 ### Radii
 
@@ -92,7 +94,7 @@ Always cool petrol-tinted (`rgba(16,51,59,…)`), low spread, never gray/black. 
 
 ### Borders
 
-1px hairlines in warm neutrals. Focus state: 3px green focus ring (`--ring`), never browser-blue.
+1px hairlines in cool neutrals. Focus state: 3px petrol focus ring (`--ring`), never browser-blue.
 
 ### Animation
 
@@ -117,7 +119,7 @@ Sticky nav uses spray white at 88% opacity + backdrop-blur so content scrolls so
 ## Iconography
 
 - **Set:** [Lucide](https://lucide.dev) — outline icons, 24px grid, rounded caps/joins.
-- **Style rules:** stroke weight ~1.9, never filled except the rating star (filled gold). Icons sit in soft `--teal-50` rounded tiles (44–52px) when used as feature/marker bullets, or inline at 16–22px next to text. On the Startseite services they stand bare (no tile) — the minimal variant.
+- **Style rules:** stroke weight ~1.9, never filled except the rating star (filled rosé). Icons sit in soft `--lagune-100` rounded tiles (44–52px) when used as feature/marker bullets, or inline at 16–22px next to text. On the Startseite services they stand bare (no tile) — the minimal variant.
 - **Usage:** sparingly and functionally — service markers, reassurance bullets, CTA arrows, contact details, result stats. Icons support text; they never replace it.
 - **To add an icon:** copy path data from lucide.dev into `PATHS` in `src/components/Icon.jsx`.
 
@@ -134,7 +136,7 @@ Sticky nav uses spray white at 88% opacity + backdrop-blur so content scrolls so
 
 Variants: `accent | primary | secondary | ghost`. Sizes: `sm | md | lg`.
 
-- `accent` (gold) — **one per view maximum**, the hero call-to-action.
+- `accent` (rosé) — **one per view maximum**, the hero call-to-action.
 - `primary` (petrol) — normal actions.
 - `secondary` — lower-emphasis sibling to a primary.
 - `ghost` — tertiary / inline.
@@ -177,4 +179,4 @@ Form layout: two columns on desktop (`jj-form-row` collapses to 1fr at ≤720px)
 
 ## The golden rule
 
-Warm words + serif headlines + generous space + **one** gold CTA. That combination is the brand.
+Warm words + serif headlines + generous space + **one** rosé CTA. That combination is the brand.

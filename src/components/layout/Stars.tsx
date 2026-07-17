@@ -7,7 +7,7 @@ interface StarsProps {
 
 export default function Stars({ n = 5, size = 18 }: StarsProps) {
   return (
-    <span style={{ display: 'inline-flex', gap: '2px', color: 'var(--gold-600)' }}>
+    <span style={{ display: 'inline-flex', gap: '2px', color: 'var(--rose-500)' }}>
       {Array.from({ length: n }).map((_, i) => (
         <Icon key={i} name="star" size={size} fill="currentColor" strokeWidth={0} />
       ))}

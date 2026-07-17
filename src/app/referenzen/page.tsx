@@ -65,7 +65,7 @@ export default function Referenzen() {
                 <Badge variant="neutral" size="sm">{c.tag}</Badge>
                 <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '23px', fontWeight: 600, color: 'var(--text-strong)', margin: '12px 0 8px' }}>{c.title}</h3>
                 <p style={{ margin: '0 0 16px', fontSize: '15.5px', lineHeight: 1.6, color: 'var(--text-muted)' }}>{c.blurb}</p>
-                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', fontSize: '14.5px', fontWeight: 600, color: 'var(--teal-700)', background: 'var(--teal-50)', padding: '8px 13px', borderRadius: 'var(--radius-md)' }}>
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', fontSize: '14.5px', fontWeight: 600, color: 'var(--lagune-800)', background: 'var(--surface-lagune-soft)', padding: '8px 13px', borderRadius: 'var(--radius-md)' }}>
                   <Icon name="trendingUp" size={17} /> {c.result}
                 </div>
               </div>

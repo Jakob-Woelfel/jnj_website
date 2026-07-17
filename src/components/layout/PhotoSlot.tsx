@@ -5,7 +5,7 @@ type Tone = 'green' | 'gold' | 'cream';
 
 const tones: Record<Tone, { bg: string; fg: string }> = {
   green: { bg: 'linear-gradient(140deg, var(--teal-100), var(--teal-200))', fg: 'var(--teal-700)' },
-  gold:  { bg: 'linear-gradient(140deg, var(--gold-100), var(--gold-200))',   fg: 'var(--gold-800)' },
+  gold:  { bg: 'linear-gradient(140deg, var(--rose-100), var(--rose-200))',   fg: 'var(--rose-800)' },
   cream: { bg: 'var(--surface-sunken)', fg: 'var(--text-faint)' },
 };
 

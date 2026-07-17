@@ -60,14 +60,16 @@ design/                  ← SOURCE OF TRUTH for tokens, brand, and screen specs
 
 **Always use semantic tokens, not raw hex values.** Use `var(--teal-800)` not `#16404A`. Semantic aliases are in `design/tokens.css`.
 
-Key tokens to know (Atlantik-Konzept: Petrol + Gischt-Weiß + Sand-Gold):
+Key tokens to know (Atlantik-Konzept: Petrol + Gischt-Weiß + Rosé, dazu Lagune-Mint + Muschel):
 - `--surface-page` — Gischt-weißer Seitenhintergrund
 - `--surface-card` — white card surface
 - `--surface-brand` — dark petrol (process section, CTA band)
 - `--surface-brand-deep` — deeper petrol (footer, CTA band inner)
 - `--text-strong / --text-body / --text-muted / --text-faint` — text hierarchy
 - `--text-on-brand / --text-on-brand-muted` — text on dark petrol surfaces
-- `--accent` — gold, **reserved for the single primary CTA only**
+- `--accent` — Rosé (#D68FA1), **reserved for the single primary CTA only**; Text darauf `--text-on-accent` (teal-950)
+- `--lagune-*` — Grün/Mint-Sekundärfamilie: Icon-Kacheln (`--surface-lagune-soft`), sanfte Tönungen, Erfolgs-Status
+- `--surface-shell` — Muschel, warme Rosé-Weiß-Fläche für ruhige Sektionsbänder (einzige warme Neutrale)
 - `--font-serif` — Newsreader via `var(--font-newsreader)` CSS variable, used for h1, h2, display, pull-quotes
 - `--font-sans` — Figtree via `var(--font-figtree)` CSS variable, used for h3/h4, body, all UI
 - `--section-y` — vertical rhythm between sections (6rem)

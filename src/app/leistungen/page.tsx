@@ -57,14 +57,14 @@ export default function Leistungen() {
                 <h3 style={{ fontFamily: 'var(--font-serif)', fontWeight: 500, fontSize: '28px', color: p.featured ? 'var(--text-on-brand)' : 'var(--text-strong)', margin: '0 0 4px' }}>
                   {p.name}
                 </h3>
-                <span style={{ fontFamily: 'var(--font-sans)', fontWeight: 700, fontSize: '22px', color: p.featured ? 'var(--gold-400)' : 'var(--teal-700)' }}>
+                <span style={{ fontFamily: 'var(--font-sans)', fontWeight: 700, fontSize: '22px', color: p.featured ? 'var(--rose-400)' : 'var(--teal-700)' }}>
                   {p.preis}
                 </span>
               </div>
               <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', flex: 1 }}>
                 {p.punkte.map((punkt) => (
                   <li key={punkt} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontSize: '15.5px', color: p.featured ? 'var(--text-on-brand-muted)' : 'var(--text-muted)' }}>
-                    <Icon name="check" size={18} style={{ color: p.featured ? 'var(--gold-400)' : 'var(--teal-600)', flex: 'none', marginTop: '2px' }} />
+                    <Icon name="check" size={18} style={{ color: p.featured ? 'var(--rose-400)' : 'var(--teal-600)', flex: 'none', marginTop: '2px' }} />
                     {punkt}
                   </li>
                 ))}

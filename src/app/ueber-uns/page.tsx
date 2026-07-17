@@ -70,7 +70,7 @@ export default function UeberUns() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '22px' }}>
           {WERTE.map((w) => (
             <div key={w.title} style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-              <span style={{ width: '52px', height: '52px', borderRadius: 'var(--radius-md)', background: 'var(--teal-50)', color: 'var(--teal-700)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <span style={{ width: '52px', height: '52px', borderRadius: 'var(--radius-md)', background: 'var(--surface-lagune-soft)', color: 'var(--lagune-700)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <Icon name={w.icon} size={26} />
               </span>
               <h3 style={{ fontFamily: 'var(--font-sans)', fontWeight: 600, fontSize: '19px', color: 'var(--text-strong)', margin: 0 }}>{w.title}</h3>

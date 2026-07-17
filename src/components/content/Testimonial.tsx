@@ -11,9 +11,9 @@ interface TestimonialProps {
 
 export function Testimonial({ quote, name, business, photo, rating = 0, featured = false }: TestimonialProps) {
   return (
-    <figure style={{ margin: 0, background: featured ? 'var(--surface-brand-soft)' : 'var(--surface-card)', border: '1px solid var(--border-default)', borderRadius: 'var(--radius-lg)', padding: featured ? 'var(--space-8)' : 'var(--space-6)', boxShadow: 'var(--shadow-sm)', display: 'flex', flexDirection: 'column', gap: 'var(--space-5)', height: '100%', boxSizing: 'border-box' }}>
+    <figure style={{ margin: 0, background: featured ? 'var(--surface-lagune-soft)' : 'var(--surface-card)', border: '1px solid var(--border-default)', borderRadius: 'var(--radius-lg)', padding: featured ? 'var(--space-8)' : 'var(--space-6)', boxShadow: 'var(--shadow-sm)', display: 'flex', flexDirection: 'column', gap: 'var(--space-5)', height: '100%', boxSizing: 'border-box' }}>
       {rating > 0 && (
-        <div aria-label={`${rating} von 5`} style={{ display: 'flex', gap: '2px', color: 'var(--gold-600)' }}>
+        <div aria-label={`${rating} von 5`} style={{ display: 'flex', gap: '2px', color: 'var(--rose-500)' }}>
           {Array.from({ length: 5 }).map((_, i) => (
             <svg key={i} width="17" height="17" viewBox="0 0 20 20" fill={i < rating ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="1.4">
               <path d="M10 1.6l2.47 5.01 5.53.8-4 3.9.94 5.5L10 14.2l-4.95 2.6.94-5.5-4-3.9 5.53-.8z" strokeLinejoin="round" />

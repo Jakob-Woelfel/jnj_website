@@ -8,7 +8,7 @@
 }
 .brand { background: var(--surface-brand);      color: var(--text-on-brand); border-color: transparent; }
 .cream { background: var(--surface-card-cream); }
-.soft  { background: var(--surface-brand-soft); }
+.soft  { background: var(--surface-lagune-soft); }
 
 .interactive { cursor: pointer; }
 .interactive:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }

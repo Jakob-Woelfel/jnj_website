@@ -53,7 +53,7 @@ export default function Kontakt() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '18px', marginTop: '34px' }}>
               {REASSURANCES.map((r) => (
                 <div key={r.title} style={{ display: 'flex', gap: '14px' }}>
-                  <span style={{ width: '44px', height: '44px', flex: 'none', borderRadius: 'var(--radius-md)', background: 'var(--teal-50)', color: 'var(--teal-700)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <span style={{ width: '44px', height: '44px', flex: 'none', borderRadius: 'var(--radius-md)', background: 'var(--surface-lagune-soft)', color: 'var(--lagune-700)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <Icon name={r.icon} size={22} />
                   </span>
                   <div>
@@ -78,7 +78,7 @@ export default function Kontakt() {
           <Card padding="lg" style={{ boxShadow: 'var(--shadow-md)' }}>
             {sent ? (
               <div style={{ textAlign: 'center', padding: '40px 10px' }}>
-                <span style={{ width: '64px', height: '64px', borderRadius: '50%', background: 'var(--teal-50)', color: 'var(--teal-600)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
+                <span style={{ width: '64px', height: '64px', borderRadius: '50%', background: 'var(--surface-lagune-soft)', color: 'var(--lagune-700)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
                   <Icon name="check" size={34} />
                 </span>
                 <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '26px', fontWeight: 500, color: 'var(--text-strong)', margin: '0 0 10px' }}>

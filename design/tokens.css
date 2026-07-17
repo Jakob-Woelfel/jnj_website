@@ -27,21 +27,37 @@
   --teal-100: #DFECEF;
   --teal-50:  #EFF5F6;
 
-  /* Sand gold — CTA accent, die einzige Warmfarbe im Konzept
+  /* Rosé — CTA accent, der einzige kräftige Warmton im Konzept
      Reserve for the ONE primary action visible at a time.
-     Never body text. 500 = accent fill.                          */
-  --gold-800: #9A6E1E;
-  --gold-700: #B8852A;
-  --gold-600: #D29A38;
-  --gold-500: #E7B24C;
-  --gold-400: #EFC36E;
-  --gold-300: #F4D597;
-  --gold-200: #F9E6C2;
-  --gold-100: #FCF1DA;
-  --gold-50:  #FDF8EC;
+     Never body text. 500 = accent fill, Text darauf: teal-950.   */
+  --rose-800: #8C4A5C;
+  --rose-700: #AE6579;
+  --rose-600: #C57B8E;
+  --rose-500: #D68FA1;
+  --rose-400: #E0A7B5;
+  --rose-300: #EAC1CB;
+  --rose-200: #F2D8DE;
+  --rose-100: #F8E8EB;
+  --rose-50:  #FBF2F4;
+
+  /* Lagune — Grün/Mint-Sekundärfamilie
+     Icon-Kacheln, sanfte Sektions-Tönungen, zweite dunkle Fläche
+     neben Petrol, Erfolgs-Status. 800 = dunkler Anker, 400 = Mint. */
+  --lagune-950: #16302C;
+  --lagune-900: #1F413C;
+  --lagune-800: #2D5652;
+  --lagune-700: #3A6B66;
+  --lagune-600: #4A837C;
+  --lagune-500: #63A199;
+  --lagune-400: #97D3CD;
+  --lagune-300: #B7E0DB;
+  --lagune-200: #CFEAE5;
+  --lagune-100: #E4F2EA;
+  --lagune-50:  #F1F8F4;
 
   /* Fels-Neutrale — text, borders, surfaces
-     Cool, slightly blue-tinted like wet rock. Never warm beige.  */
+     Cool, slightly blue-tinted like wet rock. Never warm beige —
+     einzige bewusste Ausnahme: --shell (Muschel).                */
   --ink-950: #101B1F;
   --ink-900: #172226;   /* strongest text */
   --ink-800: #26333A;
@@ -55,11 +71,12 @@
   --ink-100: #EFF2F3;   /* sunken fills */
   --paper:   #F4F6F5;   /* page background (Gischt-Weiß) */
   --paper-2: #FAFCFB;   /* slightly lighter — quiet strips */
+  --shell:   #EFEAE6;   /* Muschel — warme Rosé-Weiß-Fläche */
   --white:   #FFFFFF;
 
   /* Status hues — tuned to the cool palette */
-  --success-600: #2E7A5C;   /* sea green */
-  --success-100: #DEEEE6;
+  --success-600: var(--lagune-700);
+  --success-100: var(--lagune-100);
   --warning-600: #C8881F;
   --warning-100: #FBEBC8;
   --danger-700:  #9E3B23;
@@ -75,8 +92,10 @@
   --surface-sunken:      var(--ink-100);
   --surface-brand:       var(--teal-800);    /* process section, nav band */
   --surface-brand-deep:  var(--teal-900);    /* footer, CTA band inner */
-  --surface-brand-soft:  var(--teal-50);     /* icon tiles, subtle tints */
-  --surface-accent-soft: var(--gold-50);
+  --surface-brand-soft:  var(--teal-50);     /* subtle petrol tints */
+  --surface-lagune-soft: var(--lagune-100);  /* icon tiles, mint tints */
+  --surface-shell:       var(--shell);       /* Muschel section band */
+  --surface-accent-soft: var(--rose-50);
 
   /* Semantic text aliases */
   --text-strong:         var(--ink-900);
@@ -85,7 +104,7 @@
   --text-faint:          var(--ink-500);
   --text-on-brand:       #EBF3F4;            /* on dark petrol surfaces */
   --text-on-brand-muted: #A9C6CC;
-  --text-on-accent:      var(--teal-900);    /* text on gold fills */
+  --text-on-accent:      var(--teal-950);    /* text on rosé fills */
   --text-link:           var(--teal-600);
   --text-link-hover:     var(--teal-800);
 
@@ -100,13 +119,13 @@
   --brand-hover:       var(--teal-900);
   --interactive:       var(--teal-600);
   --interactive-hover: var(--teal-700);
-  --accent:            var(--gold-500);      /* gold CTA */
-  --accent-hover:      var(--gold-600);
-  --accent-press:      var(--gold-700);
+  --accent:            var(--rose-500);      /* Rosé CTA */
+  --accent-hover:      var(--rose-600);
+  --accent-press:      var(--rose-700);
 
   /* Focus */
   --focus-ring:        rgba(46, 107, 122, 0.40);
-  --focus-ring-accent: rgba(231, 178, 76, 0.55);
+  --focus-ring-accent: rgba(214, 143, 161, 0.55);
 
   /* ── Typography ─────────────────────────────────────────── */
 

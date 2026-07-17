@@ -40,7 +40,7 @@ Layout: `min-height: 100svh`, content bottom-left, no grid.
 
 - Photo: `/images/meer-felskueste.webp` (`.jj-hero-photo`), `object-fit: cover`, `object-position: 70% 45%` desktop / `62% 50%` ≤720px — the rock stays right, the surf lower left.
 - Scrim: petrol gradient (`rgba(12,43,50,0.82)` bottom-left → transparent top-right) for text legibility; a second thin top gradient keeps the transparent nav readable. The photo stays almost pure across most of its area.
-- H1 (white serif, clamp 52–104px, max 13ch): *"Ihr Felsen in der Brandung."* — "Brandung" italic with the gold underline SVG.
+- H1 (white serif, clamp 52–104px, max 13ch): *"Ihr Felsen in der Brandung."* — "Brandung" italic with the rosé underline SVG.
 - Lead (white 88%, clamp 17–20px, max 44ch): "Wir sind Jakob & Jakob. Wir bauen Websites, die ruhig und zuverlässig für Ihr Unternehmen arbeiten — kein Fachjargon, keine Überraschungen."
 - CTA row: `<Button variant="accent" size="lg" iconRight={arrowRight}>Kostenlos beraten lassen</Button>` + plain white underlined text link "Unsere Referenzen".
 
@@ -63,7 +63,7 @@ Surface: `--surface-brand` (dark petrol) — the only dark section. White and `-
 Layout: `Intro (0.8fr) | Steps (1.2fr)`, collapses at ≤920px.
 
 **Left:** eyebrow "So läuft es ab" (`--teal-300`), H2 "Einfach — von Hallo bis Launch.", one-line lead.
-**Right — numbered steps** (dividers rgba white 14%): number in `--gold-400` serif, H3 title, one sentence each.
+**Right — numbered steps** (dividers rgba white 14%): number in `--rose-400` serif, H3 title, one sentence each.
 
 1. **01 — Das erste Gespräch**
 2. **02 — Wir designen & entwickeln**
@@ -71,8 +71,8 @@ Layout: `Intro (0.8fr) | Steps (1.2fr)`, collapses at ≤920px.
 
 ### 4. Ein Zitat — bare pull-quote
 
-Surface: `--surface-page`. Centered `<figure>`, max 760px — **no card, no grid**.
-5 gold stars, serif blockquote (clamp 24–34px), caption with real name + business (Maria Alvarez, Zahnarztpraxis Alvarez).
+Surface: `--surface-shell` (warm Muschel band). Centered `<figure>`, max 760px — **no card, no grid**.
+5 rosé stars, serif blockquote (clamp 24–34px), caption with real name + business (Maria Alvarez, Zahnarztpraxis Alvarez).
 
 ### 5. CTA-Band
 
