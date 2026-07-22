@@ -94,6 +94,7 @@ Most components are server components. Only these use `'use client'`:
 - `Input`, `Textarea`, `Select`, `Checkbox` — `useId` for label association
 - `kontakt/page.tsx` — `useState` for form sent state
 - `Reveal` — `IntersectionObserver` scroll-reveal (fires once)
+- `SmoothScroll` — `useEffect` initializes/tears down the Lenis inertia-scroll instance; wraps `<main>` in `layout.tsx`
 
 ## Adding a new page
 

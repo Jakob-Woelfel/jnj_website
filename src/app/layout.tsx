@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Newsreader, Figtree } from 'next/font/google';
 import Nav    from '@/components/layout/Nav';
 import Footer from '@/components/layout/Footer';
+import SmoothScroll from '@/components/layout/SmoothScroll';
 import '@/styles/globals.css';
 
 const newsreader = Newsreader({
@@ -39,7 +40,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="de" className={`${newsreader.variable} ${figtree.variable}`}>
       <body style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
         <Nav />
-        <main style={{ flex: 1 }}>{children}</main>
+        <SmoothScroll>
+          <main style={{ flex: 1 }}>{children}</main>
+        </SmoothScroll>
         <Footer />
       </body>
     </html>
