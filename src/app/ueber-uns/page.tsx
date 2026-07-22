@@ -80,8 +80,8 @@ export default function UeberUns() {
         </div>
       </Section>
 
-      <Section bg="var(--surface-brand)">
-        <div style={{ textAlign: 'center' }}>
+      <div style={{ padding: 'var(--section-y) var(--gutter-lg)' }}>
+        <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto', background: 'var(--surface-brand-deep)', borderRadius: 'var(--radius-2xl)', padding: 'clamp(34px, 5vw, 60px) clamp(40px, 6vw, 72px) clamp(48px, 7vw, 84px)', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
           <h2 style={{ fontFamily: 'var(--font-serif)', fontWeight: 500, fontSize: 'clamp(28px, 4vw, 42px)', letterSpacing: '-0.02em', color: '#fff', margin: '0 0 18px' }}>
             Lernen wir uns kennen.
           </h2>
@@ -92,7 +92,7 @@ export default function UeberUns() {
             Jetzt Gespräch vereinbaren
           </Button>
         </div>
-      </Section>
+      </div>
     </div>
   );
 }

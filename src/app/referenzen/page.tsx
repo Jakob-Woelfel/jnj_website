@@ -74,19 +74,19 @@ export default function Referenzen() {
         </div>
       </Section>
 
-      <Section>
-        <div style={{ textAlign: 'center' }}>
-          <h2 style={{ fontFamily: 'var(--font-serif)', fontWeight: 500, fontSize: 'clamp(26px, 4vw, 38px)', letterSpacing: '-0.02em', color: 'var(--text-strong)', margin: '0 0 16px' }}>
+      <div style={{ padding: 'var(--section-y) var(--gutter-lg)' }}>
+        <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto', background: 'var(--surface-brand-deep)', borderRadius: 'var(--radius-2xl)', padding: 'clamp(34px, 5vw, 60px) clamp(40px, 6vw, 72px) clamp(48px, 7vw, 84px)', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+          <h2 style={{ fontFamily: 'var(--font-serif)', fontWeight: 500, fontSize: 'clamp(26px, 4vw, 38px)', letterSpacing: '-0.02em', color: '#fff', margin: '0 0 16px' }}>
             Kommt Ihre als Nächstes?
           </h2>
-          <p style={{ fontSize: '18px', color: 'var(--text-muted)', maxWidth: '44ch', margin: '0 auto 26px' }}>
+          <p style={{ fontSize: '18px', color: 'var(--text-on-brand-muted)', maxWidth: '44ch', margin: '0 auto 26px' }}>
             Erzählen Sie uns von Ihrem Unternehmen. Wir sagen Ihnen ehrlich, ob und wie wir helfen können.
           </p>
           <Button variant="accent" size="lg" href="/kontakt" iconRight={<Icon name="arrowRight" size={18} />}>
             Kostenlos beraten lassen
           </Button>
         </div>
-      </Section>
+      </div>
     </div>
   );
 }

@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 
 /*
-  Fades content up as it enters the viewport. Fires once.
+  Fades content up as it enters the viewport, and back down when it leaves.
   Respects prefers-reduced-motion (content shown immediately).
 */
 
@@ -26,10 +26,7 @@ export default function Reveal({ children, delay = 0, y = 26 }: RevealProps) {
     }
     const io = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setShown(true);
-          io.disconnect();
-        }
+        setShown(entry.isIntersecting);
       },
       { threshold: 0.15 }
     );

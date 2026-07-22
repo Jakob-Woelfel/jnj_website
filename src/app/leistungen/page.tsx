@@ -48,8 +48,8 @@ export default function Leistungen() {
         <SectionHeading eyebrow="Unsere Leistungen" title="Alles, was Ihre Website braucht" lead="Von der ersten Idee bis zur dauerhaften Betreuung. Wir bieten klare Pakete — und passen sie an, wenn nötig." />
       </Section>
 
-      <Section pad="0" bg="var(--paper-2)">
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '22px', paddingBottom: 'var(--section-y)' }}>
+      <Section bg="var(--surface-shell)">
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '22px' }}>
           {PAKETE.map((p) => (
             <Card key={p.name} padding="lg" tone={p.featured ? 'brand' : 'white'} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
               <div>
@@ -77,19 +77,19 @@ export default function Leistungen() {
         </div>
       </Section>
 
-      <Section>
-        <div style={{ textAlign: 'center' }}>
-          <h2 style={{ fontFamily: 'var(--font-serif)', fontWeight: 500, fontSize: 'clamp(26px, 4vw, 38px)', letterSpacing: '-0.02em', color: 'var(--text-strong)', margin: '0 0 16px' }}>
+      <div style={{ padding: 'var(--section-y) var(--gutter-lg)' }}>
+        <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto', background: 'var(--surface-brand-deep)', borderRadius: 'var(--radius-2xl)', padding: 'clamp(34px, 5vw, 60px) clamp(40px, 6vw, 72px) clamp(48px, 7vw, 84px)', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+          <h2 style={{ fontFamily: 'var(--font-serif)', fontWeight: 500, fontSize: 'clamp(26px, 4vw, 38px)', letterSpacing: '-0.02em', color: '#fff', margin: '0 0 16px' }}>
             Nicht sicher, was passt?
           </h2>
-          <p style={{ fontSize: '18px', color: 'var(--text-muted)', maxWidth: '44ch', margin: '0 auto 26px' }}>
+          <p style={{ fontSize: '18px', color: 'var(--text-on-brand-muted)', maxWidth: '44ch', margin: '0 auto 26px' }}>
             Kein Problem. Erzählen Sie uns von Ihrem Unternehmen — wir empfehlen Ihnen ehrlich, was sinnvoll ist.
           </p>
           <Button variant="accent" size="lg" href="/kontakt" iconRight={<Icon name="arrowRight" size={18} />}>
             Kostenlos beraten lassen
           </Button>
         </div>
-      </Section>
+      </div>
     </div>
   );
 }

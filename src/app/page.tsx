@@ -150,8 +150,8 @@ export default function Startseite() {
 
       {/* CTA-BAND */}
       <Reveal>
-      <div style={{ padding: '0 var(--gutter-lg) var(--section-y)' }}>
-        <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto', background: 'var(--surface-brand-deep)', borderRadius: 'var(--radius-2xl)', padding: 'clamp(40px, 6vw, 72px)', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+      <div style={{ padding: 'var(--section-y) var(--gutter-lg)' }}>
+        <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto', background: 'var(--surface-brand-deep)', borderRadius: 'var(--radius-2xl)', padding: 'clamp(34px, 5vw, 60px) clamp(40px, 6vw, 72px) clamp(48px, 7vw, 84px)', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
           <h2 style={{ fontFamily: 'var(--font-serif)', fontWeight: 500, fontSize: 'clamp(30px, 4.5vw, 46px)', lineHeight: 1.1, letterSpacing: '-0.02em', color: '#fff', margin: 0, maxWidth: '22ch', marginInline: 'auto' }}>
             Bereit für ruhigeres Fahrwasser?
           </h2>
